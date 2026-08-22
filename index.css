@@ -1,5 +1,7 @@
 body {
-  font-family: "Noto Sans KR", sans-serif !important;
+  font-family: "Figtree", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-style: normal !important;
 }
 
 .books-wrapper {
@@ -12,9 +14,15 @@ body {
 .book-author {
   display: flex;
   justify-content: center;
+  color: rgb(128, 126, 126);
 }
 
 .book-title {
   display: flex;
   justify-content: center;
+  font-weight: bold;
+}
+img {
+  height: 400px;
+  width: auto;
 }
