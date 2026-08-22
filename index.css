@@ -9,20 +9,31 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 40px 20px;
-}
 
-.book-author {
-  display: flex;
-  justify-content: center;
-  color: rgb(128, 126, 126);
-}
+  .book {
+    /* &:hover {
+    background-color: gray;
 
-.book-title {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-}
-img {
-  height: 400px;
-  width: auto;
+    .book-author {
+      color: red;
+    }
+  } */
+
+    img {
+      height: 400px;
+      width: auto;
+    }
+
+    .book-title {
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .book-author {
+      display: flex;
+      justify-content: center;
+      color: rgb(128, 126, 126);
+    }
+  }
 }
