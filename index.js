@@ -1,34 +1,78 @@
 var books = [
-  { id: 1, title: "Sujokkwan", author: "Yu Re Hyuk" },
-  { id: 2, title: "Annyeong, Peter Pan", author: "Jeon Gyeong Cheol" },
-  { id: 3, title: "Jeolchang", author: "Gu Byeong Mo" },
+  {
+    id: 1,
+    title: "Sujokkwan",
+    author: "Yu Re Hyuk",
+    image: "book images/Schachnovelle.jpg",
+  },
+  {
+    id: 2,
+    title: "Annyeong, Peter Pan",
+    author: "Jeon Gyeong Cheol",
+    image: "book images/annyeong pitho pen.jpg",
+  },
+  {
+    id: 3,
+    title: "Jeolchang",
+    author: "Gu Byeong Mo",
+    image: "book images/jeolchang.jpg",
+  },
 
-  { id: 4, title: "Und Nietzsche weinte", author: "Irvin D. Yalom" },
-  { id: 5, title: "Das Bildnis des Dorian Gray", author: "Oscar Wilde" },
-  { id: 6, title: "Madame Bovary", author: "Gustave Flaubert" },
-  { id: 7, title: "Schachnovelle", author: "Stafan Zweig" },
-  { id: 8, title: "Super Book", author: "Haruki" },
+  {
+    id: 4,
+    title: "Und Nietzsche weinte",
+    author: "Irvin D. Yalom",
+    image: "book images/Und Nietzsche weinte.jpg",
+  },
+  {
+    id: 5,
+    title: "Das Bildnis des Dorian Gray",
+    author: "Oscar Wilde",
+    image: "book images/Das Bildnis des Dorian Gray.webp",
+  },
+  {
+    id: 6,
+    title: "Madame Bovary",
+    author: "Gustave Flaubert",
+    image: "book images/madame bovary.webp",
+  },
+  {
+    id: 7,
+    title: "Schachnovelle",
+    author: "Stafan Zweig",
+    image: "book images/Schachnovelle.jpg",
+  },
 ];
 
-const bookElement = document.createElement("div");
+books.forEach((book) => {
+  addBook(book);
+});
 
-const imageElement = document.createElement("img");
-const titleElement = document.createElement("div");
-const authorElement = document.createElement("div");
-bookElement.appendChild(imageElement);
-bookElement.appendChild(titleElement);
-bookElement.appendChild(authorElement);
+function addBook(book) {
 
-bookElement.classList.add("book");
-titleElement.classList.add("book-title");
-authorElement.classList.add("book-author");
+  const bookElement = document.createElement("div");
 
-imageElement.src = "book images/Schachnovelle.jpg";
-titleElement.textContent = "schachnovelle";
-authorElement.textContent = "stefan zweig";
+  const imageElement = document.createElement("img");
+  const titleElement = document.createElement("div");
+  const authorElement = document.createElement("div");
 
-const booksWrapperElement = document.getElementById("booksWrapper");
-booksWrapperElement.appendChild(bookElement);
+  bookElement.appendChild(imageElement);
+  bookElement.appendChild(titleElement);
+  bookElement.appendChild(authorElement);
+
+  bookElement.classList.add("book");
+  titleElement.classList.add("book-title");
+  authorElement.classList.add("book-author");
+
+  imageElement.src = book.image;
+  titleElement.textContent = book.title;
+  authorElement.textContent = book.author;
+
+  const booksWrapperElement = document.getElementById("booksWrapper");
+  booksWrapperElement.appendChild(bookElement);
+}
+
+
 
 // const buttonElement = document.createElement("button");
 
