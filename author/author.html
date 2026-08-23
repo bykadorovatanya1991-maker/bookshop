@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Bookshop</title>
-    <link rel="stylesheet" href="book.css" />
+    <link rel="stylesheet" href="author.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
@@ -20,7 +20,14 @@
     />
   </head>
   <body>
-    <button onclick="backButtonClicked()">Back</button>
+    <div id="authorOverview" class="author-overview">
+      <img id="authorImage" class="author-image" />
+      <div id="AuthorTextOverview" class="author-text-overview">
+        <div id="authorDescription" class="author-description"></div>
+        <div id="authorBooksNumber" class="author-books-number"></div>
+      </div>
+    </div>
+
     <div class="book-wrapper">
       <img id="image" />
       <div class="book-info">
@@ -30,6 +37,6 @@
       </div>
     </div>
 
-    <script src="book.js"></script>
+    <script src="author.js"></script>
   </body>
 </html>

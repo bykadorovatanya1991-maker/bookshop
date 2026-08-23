@@ -18,3 +18,7 @@ fetch("http://localhost:8000/books/" + id)
     imageElement.src = data.image;
   });
 
+function backButtonClicked() {
+  //window.history.back();
+  window.location.href = "/index.html";
+}

@@ -25,7 +25,8 @@ function addBook(book) {
   authorElement.classList.add("book-author");
 
   bookElement.addEventListener("click", (x) => {
-    console.log(x);
+    console.log("book", x);
+    window.location.href = "/book.html?id=" + book.id;
   });
 
   imageElement.src = book.image;
@@ -34,3 +35,5 @@ function addBook(book) {
 
   booksWrapperElement.appendChild(bookElement);
 }
+
+
