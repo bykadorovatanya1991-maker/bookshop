@@ -26,6 +26,7 @@ function addBook(book) {
 
   bookElement.addEventListener("click", (x) => {
     console.log("book", x);
+    x.stopPropagation();
     window.location.href = "/book.html?id=" + book.id;
   });
 
@@ -36,4 +37,7 @@ function addBook(book) {
   booksWrapperElement.appendChild(bookElement);
 }
 
-
+const body = document.getElementsByTagName("body")[0];
+body.addEventListener("click", (x) => {
+  console.log("abobus");
+});

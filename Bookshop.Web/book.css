@@ -1,0 +1,11 @@
+.book-wrapper{
+  display: flex;
+  justify-content: space-around;
+}
+.author{
+  border:  none;
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+
+}

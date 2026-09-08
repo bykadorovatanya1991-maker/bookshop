@@ -16,6 +16,10 @@ fetch("http://localhost:8000/books/" + id)
     authorElement.innerText = data.author;
     descriptionElement.innerText = data.description;
     imageElement.src = data.image;
+
+    document.querySelector(".author").addEventListener("click", (x) => {
+      window.location.href = "/author/author.html?id=" + data.authorId;
+    });
   });
 
 function backButtonClicked() {

@@ -20,22 +20,24 @@
     />
   </head>
   <body>
+    
+    <button onclick="backButtonClicked()">Back</button>
     <div id="authorOverview" class="author-overview">
-      <img id="authorImage" class="author-image" />
-      <div id="AuthorTextOverview" class="author-text-overview">
-        <div id="authorDescription" class="author-description"></div>
+      <div>
+        <img id="authorImage" class="author-image" />
+        <div id="authorName" class="author-name"></div>
+      </div>
+      <div class="author-text-overview">
+        <div id="authorBornDead" class="author-born-dead">
+          <span id="authorBorn" class="author-born"></span>
+          <span> - </span> 
+          <span id="authorDead" class="author-dead"></span>
+        </div>
         <div id="authorBooksNumber" class="author-books-number"></div>
       </div>
     </div>
 
-    <div class="book-wrapper">
-      <img id="image" />
-      <div class="book-info">
-        <div id="title"></div>
-        <div id="author"></div>
-        <div id="description"></div>
-      </div>
-    </div>
+    <div id="authorBooksWrapper" class="author-books-wrapper"></div>
 
     <script src="author.js"></script>
   </body>

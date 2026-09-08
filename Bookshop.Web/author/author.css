@@ -1,0 +1,18 @@
+.author-overview {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* 
+.author-born-dead{
+  display: flex;
+} */
+ .author-books-wrapper{
+  display: flex;
+  gap: 20px;
+
+  img{
+    max-height: 350px;
+    width: auto;
+    min
+  }
+}
