@@ -1,8 +1,8 @@
 fetch("http://localhost:8000/books")
   .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    data.books.forEach((book) => {
+  .then((books) => {
+    console.log(books);
+    books.forEach((book) => {
       addBook(book);
     });
   });
