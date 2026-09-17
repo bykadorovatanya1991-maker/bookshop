@@ -1,11 +1,28 @@
-fetch("http://localhost:8000/books")
-  .then((response) => response.json())
-  .then((books) => {
-    console.log(books);
-    books.forEach((book) => {
-      addBook(book);
+getBooks();
+
+function onSearchButtonClicked() {
+  let searchQuery = document.getElementById("searchInput").value;
+  getBooks(searchQuery);
+}
+
+function getBooks(searchQuery) {
+  let url = "https://localhost:7059/books";
+  if (searchQuery !== null && searchQuery !== undefined && searchQuery !== "") {
+    url += "?searchString=" + searchQuery;
+  }
+  fetch(url)
+    .then((response) => response.json())
+    .then((books) => {
+      console.log(books);
+
+      const booksWrapperElement = document.getElementById("booksWrapper");
+      booksWrapperElement.replaceChildren();
+
+      books.forEach((book) => {
+        addBook(book);
+      });
     });
-  });
+}
 
 function addBook(book) {
   const booksWrapperElement = document.getElementById("booksWrapper");
@@ -36,8 +53,3 @@ function addBook(book) {
 
   booksWrapperElement.appendChild(bookElement);
 }
-
-const body = document.getElementsByTagName("body")[0];
-body.addEventListener("click", (x) => {
-  console.log("abobus");
-});
