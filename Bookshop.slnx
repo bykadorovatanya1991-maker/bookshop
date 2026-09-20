@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Bookshop.Api/Bookshop.Api.csproj" />
+  <Project Path="Bookshop.Domain/Bookshop.Domain.csproj" Id="39b660e4-e8a3-442e-b2ff-4791cd536d38" />
+</Solution>
