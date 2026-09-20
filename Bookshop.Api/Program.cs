@@ -6,6 +6,8 @@ var app = builder.Build();
 
 app.UseCors(policy => policy.AllowAnyOrigin());
 
+BookshopDbContext.Seed();
+
 app.MapGet("/books", (string? searchString) =>
 {
     using (var database = new BookshopDbContext())
