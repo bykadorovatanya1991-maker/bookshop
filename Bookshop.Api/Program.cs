@@ -19,7 +19,7 @@ app.MapGet("/books", (string? searchString) =>
                 {
                     Id = book.Id,
                     Title = book.Title,
-                    Author = book.Author,
+                    Author = book.Author.FirstName + " " + book.Author.LastName,
                     Image = book.Image
                 })
                 .ToList();
@@ -28,13 +28,14 @@ app.MapGet("/books", (string? searchString) =>
         return database.Books
             .Where(book =>
               book.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
-              book.Author.Contains(searchString, StringComparison.OrdinalIgnoreCase)
+              book.Author.FirstName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
+              book.Author.LastName.Contains(searchString, StringComparison.OrdinalIgnoreCase)
             )
             .Select(book => new BookSearchRecord
             {
                 Id = book.Id,
                 Title = book.Title,
-                Author = book.Author,
+                Author = book.Author.FirstName + " " + book.Author.LastName,
                 Image = book.Image
             })
             .ToList();
