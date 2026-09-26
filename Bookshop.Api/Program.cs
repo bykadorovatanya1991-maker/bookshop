@@ -1,3 +1,5 @@
+using Bookshop.Api.DTOs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors();
@@ -46,7 +48,33 @@ app.MapGet("/books/{id}", (int id) =>
 {
     using (var database = new BookshopDbContext())
     {
-        return database.Books.Find(id);
+        //var books  = database.Books.Where(x => x.Id == id).ToList(); // a collection of 1 book
+        //var book   = database.Books.Where(x => x.Id == id).First();  // 1 book
+        //var bookId = database.Books.Where(x => x.Id == id).Select(x => x.Id).First(); // book ID
+        //var bookIds = database.Books.Where(x => x.Id == id).Select(x => x.Id).ToList(); // book IDs
+
+        // History of disease 
+        // 1. EF Model (Book only)
+        //return database.Books.Where(x => x.Id == id).First(); // Author = null
+        // 2. EF Model (Book + Author)
+        //return database.Books.Include(x => x.Author).Where(x => x.Id == id).First(); // Author = {...}
+        // 3. DTO
+        return database.Books.Where(x => x.Id == id)
+            .Select(book => new BookDetailsRecord
+                {
+                    Id = book.Id,
+                    Title = book.Title,
+                    //AuthorId = book.AuthorId,
+                    //Author = book.Author.FirstName + " " + book.Author.LastName,
+                    Author = new BookDetailsRecord_Author
+                    {
+                        Id = book.Author.Id,
+                        FirstName = book.Author.FirstName,
+                        LastName = book.Author.LastName,
+                    },
+                    Image = book.Image,
+                    Description = book.Description
+                }).First();
     }
 });
 

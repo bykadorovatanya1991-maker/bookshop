@@ -13,12 +13,13 @@ fetch("https://localhost:7059/books/" + id)
     const imageElement = document.getElementById("image");
 
     titleElement.innerText = data.title;
-    authorElement.innerText = data.author;
+    authorElement.innerText =
+      data.author.firstName + " " + data.author.lastName;
     descriptionElement.innerText = data.description;
     imageElement.src = data.image;
 
     document.querySelector(".author").addEventListener("click", (x) => {
-      window.location.href = "/author/author.html?id=" + data.authorId;
+      window.location.href = "/author/author.html?id=" + data.author.id;
     });
   });
 
