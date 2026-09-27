@@ -8,6 +8,10 @@ public class Author
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public DateTime DateOfBirth { get; set; }
-    public DateTime? DateOfDeath { get; set; } 
-    
+    public DateTime? DateOfDeath { get; set; }
+
+    // C# pribluda, net v DB, dlya udobstva
+    // NAVIGATION PROPERTY
+    public List<Book> Books { get; set; }
+
 }

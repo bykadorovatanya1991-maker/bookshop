@@ -16,10 +16,10 @@ fetch("https://localhost:7059/authors/" + id)
       document.getElementById("authorBooksNumber");
 
     authorImageElement.src = data.image;
-    authorNameElement.innerText = data.name;
+    authorNameElement.innerText = data.firstName + " " + data.lastName;
 
-    authorBornElement.innerText = data.born;
-    authorDeadElement.innerText = data.dead;
+    authorBornElement.innerText = data.dateOfDeath;
+    authorDeadElement.innerText = data.dateOfBirth;
     authorBooksNumberElement.innerText = data.booksCount;
 
     //author's books
@@ -32,7 +32,7 @@ fetch("https://localhost:7059/authors/" + id)
       imageTitleWrapperElement.append(bookImageElement, bookTitleElement);
       authorBooksWrapperElement.appendChild(imageTitleWrapperElement);
 
-      bookImageElement.src = x.image;
+      bookImageElement.src = "/" + x.image;
       bookTitleElement.innerText = x.title;
     });
   });

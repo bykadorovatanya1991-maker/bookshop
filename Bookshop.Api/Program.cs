@@ -61,20 +61,47 @@ app.MapGet("/books/{id}", (int id) =>
         // 3. DTO
         return database.Books.Where(x => x.Id == id)
             .Select(book => new BookDetailsRecord
+            {
+                Id = book.Id,
+                Title = book.Title,
+                //AuthorId = book.AuthorId,
+                //Author = book.Author.FirstName + " " + book.Author.LastName,
+                Author = new BookDetailsRecord_Author
                 {
-                    Id = book.Id,
-                    Title = book.Title,
-                    //AuthorId = book.AuthorId,
-                    //Author = book.Author.FirstName + " " + book.Author.LastName,
-                    Author = new BookDetailsRecord_Author
+                    Id = book.Author.Id,
+                    FirstName = book.Author.FirstName,
+                    LastName = book.Author.LastName,
+                },
+                Image = book.Image,
+                Description = book.Description
+            }).First();
+
+
+
+    }
+});
+
+app.MapGet("/authors/{id}", (int id) =>
+{
+    using (var database = new BookshopDbContext())
+    {
+        return database.Authors.Where(x => x.Id == id)
+             .Select(author => new AuthorDetailsRecord
+             {
+                 Id = author.Id,
+                 FirstName = author.FirstName,
+                 LastName = author.LastName,
+                 DateOfBirth = author.DateOfBirth,
+                 DateOfDeath = author.DateOfDeath,
+
+                 Books = author.Books
+                    .Select(book => new AuthorDetailsRecord_Book
                     {
-                        Id = book.Author.Id,
-                        FirstName = book.Author.FirstName,
-                        LastName = book.Author.LastName,
-                    },
-                    Image = book.Image,
-                    Description = book.Description
-                }).First();
+                        Id = book.Id,
+                        Image = book.Image,
+                        Title = book.Title,
+                    }).ToList(),
+             }).First();
     }
 });
 
