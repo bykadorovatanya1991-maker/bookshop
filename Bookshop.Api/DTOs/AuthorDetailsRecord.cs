@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace Bookshop.Api.DTOs
+﻿namespace Bookshop.Api.DTOs
 {
     public class AuthorDetailsRecord
     {
@@ -12,8 +10,8 @@ namespace Bookshop.Api.DTOs
         public List<AuthorDetailsRecord_Book> Books { get; set; }
 
     }
-    public class AuthorDetailsRecord_Book 
-    { 
+    public class AuthorDetailsRecord_Book
+    {
         public int Id { get; set; }
         public string Title { get; set; }
         public string Image { get; set; } = "";

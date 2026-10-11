@@ -26,8 +26,6 @@ public class BookshopDbContext : DbContext
                     new Author {FirstName = "Gustave", LastName="Flaubert", DateOfBirth = new DateTime(1991, 1, 2) },
                     new Author {FirstName = "Irvin D.", LastName="Yalom", DateOfBirth = new DateTime(1991, 1, 2) },
                     new Author {FirstName = "Eduard.", LastName="von Keyserling", DateOfBirth = new DateTime(1991, 1, 2) },
-
-
                 };
 
                 dbContext.Authors.AddRange(authors);
@@ -69,7 +67,7 @@ public class BookshopDbContext : DbContext
 
 
 
-public class Employee
+public abstract class Employee
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

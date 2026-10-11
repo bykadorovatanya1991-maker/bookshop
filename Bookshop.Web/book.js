@@ -1,9 +1,9 @@
 const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get("id");
+const id = +urlParams.get("id");
 
 console.log(id);
 
-fetch("https://localhost:7059/books/" + id)
+fetch("https://localhost:6767/books/" + id)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
@@ -23,7 +23,22 @@ fetch("https://localhost:7059/books/" + id)
     });
   });
 
-function backButtonClicked() {
+function onBackButtonClicked() {
   //window.history.back();
   window.location.href = "/index.html";
+}
+
+function onBuyButtonClicked() {
+  let cartString = localStorage.getItem("cart"); // string
+  console.log(cartString);
+
+  const cart = JSON.parse(cartString) || [];
+  console.log(cart);
+
+  cart.push(id);
+
+  cartString = JSON.stringify(cart);
+  console.log(cartString);
+
+  localStorage.setItem("cart", cartString);
 }
