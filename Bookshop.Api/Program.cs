@@ -1,4 +1,5 @@
 using Bookshop.Api.DTOs;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,13 +11,37 @@ app.UseCors(policy => policy.AllowAnyOrigin());
 
 BookshopDbContext.Seed();
 
-app.MapGet("/books", (string? searchString) =>
+app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
 {
+    var LOH = new Author();
+
     using (var database = new BookshopDbContext())
     {
-        if (string.IsNullOrWhiteSpace(searchString))
+        //if searchString is not null
+        //if else ids is not null and HashCode items
+        //else ALL
+
+        if (!string.IsNullOrWhiteSpace(searchString))
         {
             return database.Books
+                .Where(book =>
+                  book.Title.Contains(searchString) ||
+                  book.Author.FirstName.Contains(searchString) ||
+                  book.Author.LastName.Contains(searchString)
+                )
+                .Select(book => new BookSearchRecord
+                {
+                    Id = book.Id,
+                    Title = book.Title,
+                    Author = book.Author.FirstName + " " + book.Author.LastName,
+                    Image = book.Image
+                })
+                .ToList();
+        }  
+        else if (ids != null && ids.Length > 0)
+        {
+            return database.Books
+                .Where(book => ids.Contains(book.Id))
                 .Select(book => new BookSearchRecord
                 {
                     Id = book.Id,
@@ -28,11 +53,6 @@ app.MapGet("/books", (string? searchString) =>
         }
 
         return database.Books
-            .Where(book =>
-              book.Title.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
-              book.Author.FirstName.Contains(searchString, StringComparison.OrdinalIgnoreCase) ||
-              book.Author.LastName.Contains(searchString, StringComparison.OrdinalIgnoreCase)
-            )
             .Select(book => new BookSearchRecord
             {
                 Id = book.Id,
@@ -73,7 +93,8 @@ app.MapGet("/books/{id}", (int id) =>
                     LastName = book.Author.LastName,
                 },
                 Image = book.Image,
-                Description = book.Description
+                Description = book.Description,
+                Price = book.Price
             }).First();
 
 

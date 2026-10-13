@@ -11,12 +11,14 @@ fetch("https://localhost:6767/books/" + id)
     const authorElement = document.getElementById("author");
     const descriptionElement = document.getElementById("description");
     const imageElement = document.getElementById("image");
+    const priceElement = document.getElementById("price");
 
     titleElement.innerText = data.title;
     authorElement.innerText =
       data.author.firstName + " " + data.author.lastName;
     descriptionElement.innerText = data.description;
     imageElement.src = data.image;
+    priceElement.innerText = data.price;
 
     document.querySelector(".author").addEventListener("click", (x) => {
       window.location.href = "/author/author.html?id=" + data.author.id;
@@ -35,7 +37,13 @@ function onBuyButtonClicked() {
   const cart = JSON.parse(cartString) || [];
   console.log(cart);
 
-  cart.push(id);
+  const existingBookRecord = cart.find((x) => x.id == id);
+
+  if (existingBookRecord != null) {
+    existingBookRecord.count++;
+  } else {
+    cart.push({ id: id, count: 1 }); // {id: 1. count: 5}
+  }
 
   cartString = JSON.stringify(cart);
   console.log(cartString);

@@ -3,7 +3,7 @@ const id = urlParams.get("id");
 
 console.log(id);
 
-fetch("https://localhost:7059/authors/" + id)
+fetch("https://localhost:6767/authors/" + id)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);

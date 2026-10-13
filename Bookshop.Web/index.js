@@ -6,7 +6,7 @@ function onSearchButtonClicked() {
 }
 
 function onCartButtonClicked(){
-  
+  window.location.href = "/cart.html"
 }
 
 function getBooks(searchQuery) {

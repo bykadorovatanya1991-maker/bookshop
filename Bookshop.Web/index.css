@@ -4,6 +4,11 @@ body {
   font-style: normal !important;
 }
 
+.search-cart-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .books-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +34,7 @@ body {
       justify-content: center;
       font-weight: bold;
     }
-    
+
     .book-author {
       display: flex;
       justify-content: center;

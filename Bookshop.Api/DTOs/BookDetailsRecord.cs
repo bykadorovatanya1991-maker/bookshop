@@ -7,6 +7,7 @@
         public BookDetailsRecord_Author Author { get; set; }
         public string Description { get; set; }
         public string Image { get; set; } = "";
+        public decimal Price { get; set; }
     }
 
     public record BookDetailsRecord_Author
