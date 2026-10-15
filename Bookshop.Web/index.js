@@ -1,26 +1,23 @@
 getBooks();
 
 function onSearchButtonClicked() {
-  let searchQuery = document.getElementById("searchInput").value;
+  let searchQuery = document.getElementById("searchInput").value;      //string
   getBooks(searchQuery);
 }
 
-function onCartButtonClicked(){
-  window.location.href = "/cart.html"
+function onCartButtonClicked() {
+  window.location.href = "/cart.html";
 }
 
 function getBooks(searchQuery) {
-  // https://graph.instagram.com/v26.0/me
-  // https://graph.instagram.com/v26.0/<IG_ID>/media
-  // https://api.tiktok.com/me
 
-  let url = "https://localhost:6767/books"; 
+  let url = "https://localhost:6767/books";          //endpoint adress
   if (searchQuery !== null && searchQuery !== undefined && searchQuery !== "") {
-    url += "?searchString=" + searchQuery;
+    url += "?searchString=" + searchQuery;           //query parameters
   }
-  fetch(url)
+  fetch(url)                                         //http get request using url
     .then((response) => response.json())
-    .then((books) => {
+    .then((books) => {                               //books here as array
       console.log(books);
 
       const booksWrapperElement = document.getElementById("booksWrapper");

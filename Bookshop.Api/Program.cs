@@ -13,9 +13,7 @@ BookshopDbContext.Seed();
 
 app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
 {
-    var LOH = new Author();
-
-    using (var database = new BookshopDbContext())
+    using (var database = new BookshopDbContext())           //new object
     {
         //if searchString is not null
         //if else ids is not null and HashCode items
@@ -23,18 +21,19 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
 
         if (!string.IsNullOrWhiteSpace(searchString))
         {
-            return database.Books
+            return database.Books                              //which books do i need 
                 .Where(book =>
                   book.Title.Contains(searchString) ||
                   book.Author.FirstName.Contains(searchString) ||
                   book.Author.LastName.Contains(searchString)
                 )
-                .Select(book => new BookSearchRecord
+                .Select(book => new BookSearchRecord            // from every found book make a BSR and it'll be sent to client
                 {
                     Id = book.Id,
                     Title = book.Title,
                     Author = book.Author.FirstName + " " + book.Author.LastName,
-                    Image = book.Image
+                    Image = book.Image,
+                    Price = book.Price
                 })
                 .ToList();
         }  
@@ -47,7 +46,8 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
                     Id = book.Id,
                     Title = book.Title,
                     Author = book.Author.FirstName + " " + book.Author.LastName,
-                    Image = book.Image
+                    Image = book.Image,
+                    Price = book.Price
                 })
                 .ToList();
         }
@@ -58,7 +58,8 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
                 Id = book.Id,
                 Title = book.Title,
                 Author = book.Author.FirstName + " " + book.Author.LastName,
-                Image = book.Image
+                Image = book.Image,
+                Price = book.Price
             })
             .ToList();
     }

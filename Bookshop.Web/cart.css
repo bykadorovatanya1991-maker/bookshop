@@ -2,9 +2,54 @@ body {
   font-family: "Figtree", sans-serif !important;
   font-optical-sizing: auto !important;
   font-style: normal !important;
+  background-color: rgb(247, 247, 245);
+}
+.book {
+  display: grid;
+  justify-content: center;
+  column-gap: 50px;
+  padding: 20px;
+  grid-auto-flow: column;
+  align-items: center;
+  border: 1px solid rgb(156, 153, 153);
+  border-radius: 15px;
+  max-width: 700px;
+  margin: 30px auto;
+  background-color: rgb(232, 233, 235);
 }
 
 .book-image {
-  height: 400px;
+  height: 270px;
   width: auto;
+}
+.book-details {
+  color: rgb(53, 53, 53);
+}
+.book-title {
+  font-weight: bold;
+  font-size: 19px;
+}
+.book-author {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: rgb(75, 74, 74);
+}
+.total-cost {
+  display: grid;
+  justify-self: center;
+}
+.price-and-quantity {
+  display: flex;
+  gap: 10px;;
+}
+.book-quantity{
+  width: 100px;
+  background-color:transparent;
+  border: solid 1px rgb(156, 153, 153);
+  border-radius: 4px;
+  height: 20;
+  box-shadow: 5px 5px 8px rgb(156, 153, 153);
+}
+.book-delete{
+  margin-top: 6px;
 }

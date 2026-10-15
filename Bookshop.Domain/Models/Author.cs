@@ -9,6 +9,7 @@ public class Author
     public string LastName { get; set; }
     public DateTime DateOfBirth { get; set; }
     public DateTime? DateOfDeath { get; set; }
+    public string Biography { get; set; }
 
     // C# pribluda, net v DB, dlya udobstva
     // NAVIGATION PROPERTY
