@@ -2,23 +2,62 @@ body {
   font-family: "Figtree", sans-serif !important;
   font-optical-sizing: auto !important;
   font-style: normal !important;
+  background-color: rgb(232, 233, 235);
+  
 }
-
 .search-cart-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 80px;
+  border-bottom: 2px solid rgb(232, 233, 235);
 }
 
+.search-button, .search-input{
+  font-style: inherit;
+  font: inherit;
+  color: rgb(43, 42, 42);
+  background-color: rgb(246, 246, 247);
+  border: solid 1px rgb(156, 153, 153);
+  padding: 5px 20px 5px 20px;
+  margin: 15px 0px 0px 20px;
+  border-radius: 2px;
+  font-size: 18px;
+  box-shadow: 3px 3px 8px rgb(189, 187, 187);
+}
+.search-button{
+   &:hover{ background-color: rgb(102, 101, 101);
+  color: rgb(246, 246, 247);}
+}
+ .cart-button{
+  font-style: inherit;
+  font: inherit;
+  color: rgb(43, 42, 42);
+  background-color: rgb(246, 246, 247);
+  border: solid 1px rgb(156, 153, 153);
+  padding: 5px 20px 5px 20px;
+  margin: 15px 20px 20px 0px;
+  border-radius: 2px;
+  font-size: 18px;
+  box-shadow: 3px 3px 8px rgb(189, 187, 187);
+   &:hover{ background-color: rgb(102, 101, 101);
+  color: rgb(246, 246, 247);}
+}
+
+
 .books-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
 
   .book {
-    /* &:hover {
-    background-color: gray;
-
+    justify-self: center;
+     &:hover {
+  box-shadow: 8px 8px 50px rgb(189, 187, 187);
+  }
+/*
     .book-author {
       color: red;
     }
@@ -41,4 +80,4 @@ body {
       color: rgb(128, 126, 126);
     }
   }
-}
+

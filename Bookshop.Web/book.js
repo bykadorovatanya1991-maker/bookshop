@@ -18,7 +18,7 @@ fetch("https://localhost:6767/books/" + id)
       data.author.firstName + " " + data.author.lastName;
     descriptionElement.innerText = data.description;
     imageElement.src = data.image;
-    priceElement.innerText = data.price;
+    priceElement.innerText = `${data.price}€`;
 
     document.querySelector(".author").addEventListener("click", (x) => {
       window.location.href = "/author/author.html?id=" + data.author.id;

@@ -20,17 +20,17 @@
     />
   </head>
   <body>
-    <button onclick="onBackButtonClicked()">Back</button>
+    <button class="back-button" onclick="onBackButtonClicked()">Back</button>
     <div class="book-wrapper">
-      <img id="image"/>
+      <img id="image" class="image"/>
       <div class="book-info-and-buy">
         <div class="book-info">
-          <div id="title"></div>
+          <div id="title" class="title"></div>
           <button id="author" class="author" ></button>
-          <div id="description"></div>
-          <div id="price"></div> 
+          <div id="description" class="description"></div>
+          <div id="price" class="price"></div> 
         </div>
-        <button onclick="onBuyButtonClicked()">Buy</button>
+        <button class="buy-button" onclick="onBuyButtonClicked()" >Buy</button>
       </div>
 
     </div>
