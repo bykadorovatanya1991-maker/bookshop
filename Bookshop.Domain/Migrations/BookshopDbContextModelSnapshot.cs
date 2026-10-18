@@ -33,13 +33,17 @@ namespace Bookshop.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("DateOfBirth")
+                        .HasColumnType("date");
 
-                    b.Property<DateTime?>("DateOfDeath")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly?>("DateOfDeath")
+                        .HasColumnType("date");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

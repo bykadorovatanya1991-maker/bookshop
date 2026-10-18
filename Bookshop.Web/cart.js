@@ -29,13 +29,12 @@ function addBook(book) {
   const imageElement = document.createElement("img");
   const titleElement = document.createElement("div");
   const authorElement = document.createElement("div");
-  const priceAndQuantityElement = document.createElement("div")
+  const priceAndQuantityElement = document.createElement("div");
   const priceElement = document.createElement("div");
   const quantityElement = document.createElement("input");
   quantityElement.type = "number";
   const deleteElement = document.createElement("button");
   deleteElement.innerText = "Delete";
-
 
   bookElement.appendChild(imageElement);
   bookElement.appendChild(bookDetailsWrapperElement);
@@ -45,8 +44,6 @@ function addBook(book) {
   priceAndQuantityElement.appendChild(quantityElement);
   bookDetailsWrapperElement.appendChild(priceAndQuantityElement);
   bookDetailsWrapperElement.appendChild(deleteElement);
-
-
 
   bookElement.classList.add("book");
   bookDetailsWrapperElement.classList.add("book-details");
@@ -58,15 +55,14 @@ function addBook(book) {
   imageElement.classList.add("book-image");
   deleteElement.classList.add("book-delete");
 
-
   const cartRecord = cart.find((x) => x.id == book.id);
 
   imageElement.src = book.image;
   titleElement.innerText = book.title;
   authorElement.innerText = book.author;
-  priceElement.innerText =`${book.price} Euros x`;
+  priceElement.innerText = `${book.price} Euros x`;
 
-  quantityElement.min = 1
+  quantityElement.min = 1;
   quantityElement.value = cartRecord.count;
   quantityElement.addEventListener("input", () => {
     cartRecord.count = +quantityElement.value;
@@ -85,18 +81,27 @@ function addBook(book) {
   cartWrapperElement.appendChild(bookElement);
 }
 
-function updateTotal(){
+function updateTotal() {
   const totalPriceElement = document.getElementById("totalPrice");
-  const totalBookPrices = cart.map(cartRecord => {
+  const totalBookPrices = cart.map((cartRecord) => {
     const book = lastLoadedBooks.find((book) => cartRecord.id == book.id);
     const totalBookPrice = book.price * cartRecord.count;
     return totalBookPrice;
   });
-  totalPriceElement.innerText = "Total Summary: " +  `${Math.sumPrecise(totalBookPrices)}`;
+  totalPriceElement.innerText =
+    "Total Summary: " + `${Math.sumPrecise(totalBookPrices)}`;
 }
 
 var totalPriceElement = document.getElementById("totalPrice");
 const itemQuantityElement = document.createElement("div");
 
-totalPriceElement.appendChild;
 totalPriceElement.innerText = `Items(${cart.length})`;
+
+function showContactDetails() {
+  const contactDetailsWrapperElement = document.getElementById(
+    "contactDetailsWrapper",
+  );
+  contactDetailsWrapperElement.classList.remove(
+    "contact-details-wrapper-hidden",
+  );
+}

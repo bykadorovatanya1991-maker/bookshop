@@ -16,8 +16,19 @@
     <div id="cartWrapper">
     </div>
     <div id="toBuyWrapper" class="to-buy-wrapper">
-      <div id="totalPrice"></div>
-      <a id="proceedButton" class="proceed-button" href="/contactDetails.html">Proceed</a>
+      <div id="totalPrice" class="total-price"></div>
+      <button id="proceedButton" class="proceed-button" onclick="showContactDetails()">Proceed</button>
+    </div>
+    <div id="contactDetailsWrapper" class="contact-details-wrapper contact-details-wrapper-hidden">
+      <div class="phone-details">
+        <div class="phone-text">Phone number</div>
+        <input type="tel" class="phone-input" />
+      </div>
+      <div class="email-details">
+        <div class="email-text">Email</div>
+        <input type="email" class="email-input" />
+      </div>
+      <button class="submit-button">Submit</button>
     </div>
   </div>
   <script src="/cart.js"></script>

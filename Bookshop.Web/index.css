@@ -19,15 +19,16 @@ body {
   background-color: rgb(246, 246, 247);
   border: solid 1px rgb(156, 153, 153);
   padding: 5px 20px 5px 20px;
-  margin: 15px 0px 0px 20px;
+  margin: 20px 0px 20px 20px;
   border-radius: 2px;
-  font-size: 18px;
+  font-size: 19px;
   box-shadow: 3px 3px 8px rgb(189, 187, 187);
 }
 .search-button{
    &:hover{ background-color: rgb(102, 101, 101);
   color: rgb(246, 246, 247);}
 }
+
  .cart-button{
   font-style: inherit;
   font: inherit;
@@ -35,9 +36,9 @@ body {
   background-color: rgb(246, 246, 247);
   border: solid 1px rgb(156, 153, 153);
   padding: 5px 20px 5px 20px;
-  margin: 15px 20px 20px 0px;
+  margin: 20px 20px 20px 0px;
   border-radius: 2px;
-  font-size: 18px;
+  font-size: 19px;
   box-shadow: 3px 3px 8px rgb(189, 187, 187);
    &:hover{ background-color: rgb(102, 101, 101);
   color: rgb(246, 246, 247);}
@@ -72,12 +73,15 @@ body {
       display: flex;
       justify-content: center;
       font-weight: bold;
+      font-size: 18px;
+      margin-top: 5px;
     }
 
     .book-author {
       display: flex;
       justify-content: center;
       color: rgb(128, 126, 126);
+      font-size: 19px;
     }
   }
 

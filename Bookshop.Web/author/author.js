@@ -12,15 +12,16 @@ fetch("https://localhost:6767/authors/" + id)
 
     const authorBornElement = document.getElementById("authorBorn");
     const authorDeadElement = document.getElementById("authorDead");
+    const authorBiographyElement = document.getElementById("authorBiography");
     const authorBooksNumberElement =
       document.getElementById("authorBooksNumber");
 
-    authorImageElement.src = data.image;
+    authorImageElement.src = "/" + data.image;
     authorNameElement.innerText = data.firstName + " " + data.lastName;
-
-    authorBornElement.innerText = data.dateOfDeath;
-    authorDeadElement.innerText = data.dateOfBirth;
-    authorBooksNumberElement.innerText = data.booksCount;
+    authorBornElement.innerText = data.dateOfBirth;
+    authorDeadElement.innerText = data.dateOfDeath;
+    authorBiographyElement.innerText = data.biography;
+    authorBooksNumberElement.innerText = `Available books: ${data.books.length}`;
 
     //author's books
     data.books.forEach((x) => {
@@ -30,6 +31,10 @@ fetch("https://localhost:6767/authors/" + id)
       const bookImageElement = document.createElement("img");
       const bookTitleElement = document.createElement("div");
       imageTitleWrapperElement.append(bookImageElement, bookTitleElement);
+
+      imageTitleWrapperElement.classList.add("book")
+      bookImageElement.classList.add("book-image")
+      bookTitleElement.classList.add("book-title")
       authorBooksWrapperElement.appendChild(imageTitleWrapperElement);
 
       bookImageElement.src = "/" + x.image;

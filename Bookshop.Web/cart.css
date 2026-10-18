@@ -17,8 +17,10 @@ body {
   border-radius: 2px;
   font-size: 18px;
   box-shadow: 3px 3px 8px rgb(189, 187, 187);
-   &:hover{ background-color: rgb(102, 101, 101);
-  color: rgb(246, 246, 247);}
+  &:hover {
+    background-color: rgb(102, 101, 101);
+    color: rgb(246, 246, 247);
+  }
 }
 .book {
   display: grid;
@@ -89,14 +91,92 @@ body {
 }
 .to-buy-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  max-width: 700px;
+  padding: 25px 25px 25px 0px;
+  margin: 30px auto;
+}
+.total-price {
+  font-style: inherit;
+  font-size: 18px;
+  padding-top: 5px;
 }
 .proceed-button {
+  font: inherit;
+  font-weight: 600;
   color: rgb(53, 53, 53);
   background-color: rgb(232, 233, 235);
   border: solid 1px rgb(156, 153, 153);
   padding: 3px 10px 3px 10px;
   border-radius: 2px;
-  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.contact-details-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 35px 35px 10px 35px;
+  align-items: center;
+  border-bottom: 1px solid rgb(189, 187, 187);
+  border-top: 1px solid rgb(189, 187, 187);
+  border-radius: 15px;
+  max-width: 700px;
+  margin: 70px auto 30px auto;
+  box-shadow: 5px 5px 30px rgb(189, 187, 187);
+}
+.phone-details, .email-details {
+  margin-bottom: 40px;
+  align-self: stretch;
+}
+.phone-details{
+  border-top: 1px solid rgb(189, 187, 187);
+}
+.email-details{
+  border-bottom: 1px solid rgb(189, 187, 187);
+  
+}
+.phone-text,
+.email-text {
+  justify-self: center;
+  margin-bottom: 9px;
+  font-size: 19px;
+  font-weight: 500;
+  color: rgb(75, 74, 74);
+}
+.phone-text{
+  margin-top: 25px;
+}
+.phone-input,
+.email-input {
+  width: 250px;
+  padding: 4px 10px;
+  margin-top: 6px;
+  box-shadow: 3px 2px 8px rgb(189, 187, 187);
+  color: rgb(43, 42, 42);
+  background-color: transparent;
+  border: 1px solid rgb(189, 187, 187);
+  border-radius: 2px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.email-input{
+ margin-bottom: 40px;
+}
+.submit-button{
   font: inherit;
+  font-weight: 600;
+  color: rgb(53, 53, 53);
+  background-color: rgb(232, 233, 235);
+  border: solid 1px rgb(156, 153, 153);
+  padding: 3px 10px 3px 10px;
+  margin-bottom: 25px ;
+  border-radius: 2px;
+  font-size: 18px;
+  text-decoration: none;
+}
+.contact-details-wrapper-hidden{
+  display: none;
 }

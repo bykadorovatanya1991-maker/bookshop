@@ -1,5 +1,12 @@
 getBooks();
 
+const inputElement = document.getElementById("searchInput");
+inputElement.addEventListener("keydown", (event) => {
+  if(event.key === "Enter"){
+    onSearchButtonClicked()
+  }
+})
+
 function onSearchButtonClicked() {
   let searchQuery = document.getElementById("searchInput").value;      //string
   getBooks(searchQuery);

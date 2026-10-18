@@ -115,6 +115,8 @@ app.MapGet("/authors/{id}", (int id) =>
                  LastName = author.LastName,
                  DateOfBirth = author.DateOfBirth,
                  DateOfDeath = author.DateOfDeath,
+                 Image = author.Image,
+                 Biography = author.Biography,
 
                  Books = author.Books
                     .Select(book => new AuthorDetailsRecord_Book

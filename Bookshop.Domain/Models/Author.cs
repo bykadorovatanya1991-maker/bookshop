@@ -7,8 +7,10 @@ public class Author
 
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    public DateTime DateOfBirth { get; set; }
-    public DateTime? DateOfDeath { get; set; }
+    public string Image { get; set; } = "";
+   
+    public DateOnly DateOfBirth { get; set; }
+    public DateOnly? DateOfDeath { get; set; }
     public string Biography { get; set; }
 
     // C# pribluda, net v DB, dlya udobstva
