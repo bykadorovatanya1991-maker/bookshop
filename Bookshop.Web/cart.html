@@ -13,22 +13,30 @@
 <body>
   <div>
     <a href="/index.html" class="main-page-link">Main page</a>
-    <div id="cartWrapper">
-    </div>
+    <div id="cartWrapper"></div>
     <div id="toBuyWrapper" class="to-buy-wrapper">
       <div id="totalPrice" class="total-price"></div>
-      <button id="proceedButton" class="proceed-button" onclick="showContactDetails()">Proceed</button>
+      <button
+        id="proceedButton"
+        class="proceed-button"
+        onclick="showContactDetails()"
+      >
+        Proceed
+      </button>
     </div>
-    <div id="contactDetailsWrapper" class="contact-details-wrapper contact-details-wrapper-hidden">
+    <div
+      id="contactDetailsWrapper"
+      class="contact-details-wrapper contact-details-wrapper-hidden"
+    >
       <div class="phone-details">
         <div class="phone-text">Phone number</div>
-        <input type="tel" class="phone-input" />
+        <input type="tel" class="phone-input" required />
       </div>
       <div class="email-details">
         <div class="email-text">Email</div>
-        <input type="email" class="email-input" />
+        <input type="email" class="email-input" required />
       </div>
-      <button class="submit-button">Submit</button>
+      <button class="submit-button" onclick="onSubmitClicked()">Submit</button>
     </div>
   </div>
   <script src="/cart.js"></script>

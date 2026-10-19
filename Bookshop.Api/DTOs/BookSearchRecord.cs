@@ -1,3 +1,5 @@
+namespace Bookshop.Api.DTOs; 
+
 public record BookSearchRecord
 {
     public int Id { get; set; }

@@ -1,5 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+
+namespace Bookshop.Domain.Models;
 
 public class Book
 {
@@ -10,7 +11,7 @@ public class Book
 
     // C# pribluda, net v DB, dlya udobstva
     // NAVIGATION PROPERTY
-    public Author Author { get; set; } 
+    public Author Author { get; set; }
     public string Image { get; set; } = "";
 
     public decimal Price { get; set; }

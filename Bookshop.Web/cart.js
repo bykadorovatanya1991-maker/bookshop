@@ -105,3 +105,21 @@ function showContactDetails() {
     "contact-details-wrapper-hidden",
   );
 }
+
+function onSubmitClicked() {
+  const request = {
+    email: "dfgsgdf@asd.com",
+    phoneNumber: "23647623476523",
+    orderItems: cart.map((x) => {
+      return { bookId: x.id, quantity: x.count };
+    }),
+  };
+
+  fetch("https://localhost:6767/orders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+}

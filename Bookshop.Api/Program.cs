@@ -1,4 +1,5 @@
 using Bookshop.Api.DTOs;
+using Bookshop.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,7 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.UseCors(policy => policy.AllowAnyOrigin());
+app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 BookshopDbContext.Seed();
 
@@ -126,6 +127,26 @@ app.MapGet("/authors/{id}", (int id) =>
                         Title = book.Title,
                     }).ToList(),
              }).First();
+    }
+});
+
+app.MapPost("/orders", (CreateOrderRequest request) => {
+    using (var database = new BookshopDbContext()) 
+    {
+        var order = new Order
+        {
+            Email = request.Email,
+            PhoneNumber = request.PhoneNumber,
+            OrderItems = request.OrderItems.Select(item => new OrderItem
+            {
+                BookId = item.BookId,
+                Quantity = item.Quantity
+            }).ToList()
+        };
+
+        database.Orders.Add(order);
+
+        database.SaveChanges();
     }
 });
 
