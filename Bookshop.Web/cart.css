@@ -126,57 +126,72 @@ body {
   margin: 70px auto 30px auto;
   box-shadow: 5px 5px 30px rgb(189, 187, 187);
 }
-.phone-details, .email-details {
-  margin-bottom: 40px;
+.phone-details,
+.email-details {
+  margin-bottom: 25px;
   align-self: stretch;
 }
-.phone-details{
+.phone-details {
   border-top: 1px solid rgb(189, 187, 187);
 }
-.email-details{
+.email-details {
   border-bottom: 1px solid rgb(189, 187, 187);
-  
 }
 .phone-text,
 .email-text {
   justify-self: center;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
   font-size: 19px;
   font-weight: 500;
   color: rgb(75, 74, 74);
 }
 .phone-text{
-  margin-top: 25px;
+  margin-top: 15px;
 }
 .phone-input,
 .email-input {
-  width: 250px;
-  padding: 4px 10px;
-  margin-top: 6px;
-  box-shadow: 3px 2px 8px rgb(189, 187, 187);
-  color: rgb(43, 42, 42);
-  background-color: transparent;
-  border: 1px solid rgb(189, 187, 187);
-  border-radius: 2px;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+    width: 250px;
+    padding: 7px 15px;
+    box-shadow: 3px 2px 8px rgb(189, 187, 187);
+    color: rgb(43, 42, 42);
+    background-color: transparent;
+    border: 1px solid rgb(189, 187, 187);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
-.email-input{
- margin-bottom: 40px;
-}
-.submit-button{
+.submit-button {
   font: inherit;
   font-weight: 600;
   color: rgb(53, 53, 53);
   background-color: rgb(232, 233, 235);
   border: solid 1px rgb(156, 153, 153);
   padding: 3px 10px 3px 10px;
-  margin-bottom: 25px ;
+  margin-bottom: 25px;
   border-radius: 2px;
   font-size: 18px;
   text-decoration: none;
 }
-.contact-details-wrapper-hidden{
+.contact-details-wrapper-hidden {
   display: none;
 }
+.error-phone-text, .error-email-text {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.phone-input:user-invalid,
+.email-input:user-invalid {
+  border-color: red;
+}
+.phone-input:user-invalid + .error-phone-text,
+.email-input:user-invalid + .error-email-text {
+  display: block;
+}
+.error-email-text{
+min-height: 20px;}

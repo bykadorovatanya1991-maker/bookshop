@@ -24,20 +24,24 @@
         Proceed
       </button>
     </div>
-    <div
-      id="contactDetailsWrapper"
-      class="contact-details-wrapper contact-details-wrapper-hidden"
-    >
-      <div class="phone-details">
-        <div class="phone-text">Phone number</div>
-        <input type="tel" class="phone-input" required />
+    <form onsubmit="onSubmitClicked(event)">
+      <div
+        id="contactDetailsWrapper"
+        class="contact-details-wrapper contact-details-wrapper-hidden"
+      >
+        <div class="phone-details">
+          <div class="phone-text">Phone number</div>
+          <input type="tel" id="phoneInput" class="phone-input" required placeholder="bsp. +49 123 4567890" pattern="(\+49|0)[1-9][0-9]{6,14}"/>
+          <span class="error-phone-text">Enter a valid phone number</span>
+        </div>
+        <div class="email-details">
+          <div class="email-text">Email</div>
+          <input type="email" id="emailInput" class="email-input" required/>
+          <span class="error-email-text">Enter a valid email</span>
+        </div>
+        <button class="submit-button">Submit</button>
       </div>
-      <div class="email-details">
-        <div class="email-text">Email</div>
-        <input type="email" class="email-input" required />
-      </div>
-      <button class="submit-button" onclick="onSubmitClicked()">Submit</button>
-    </div>
+    </form>
   </div>
   <script src="/cart.js"></script>
 </body>

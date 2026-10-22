@@ -89,27 +89,34 @@ function updateTotal() {
     return totalBookPrice;
   });
   totalPriceElement.innerText =
-    "Total Summary: " + `${Math.sumPrecise(totalBookPrices)}`;
+    "Total: " + `${Math.sumPrecise(totalBookPrices)}`;
 }
 
 var totalPriceElement = document.getElementById("totalPrice");
 const itemQuantityElement = document.createElement("div");
 
-totalPriceElement.innerText = `Items(${cart.length})`;
-
 function showContactDetails() {
-  const contactDetailsWrapperElement = document.getElementById(
-    "contactDetailsWrapper",
-  );
-  contactDetailsWrapperElement.classList.remove(
-    "contact-details-wrapper-hidden",
-  );
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  } else {
+    const contactDetailsWrapperElement = document.getElementById(
+      "contactDetailsWrapper",
+    );
+    contactDetailsWrapperElement.classList.remove(
+      "contact-details-wrapper-hidden",
+    );
+  }
 }
 
-function onSubmitClicked() {
+function onSubmitClicked(event) {
+  event.preventDefault();
+  const phoneInputElement = document.getElementById("phoneInput");
+  const emailInputElement = document.getElementById("emailInput");
+
   const request = {
-    email: "dfgsgdf@asd.com",
-    phoneNumber: "23647623476523",
+    email: emailInputElement.value,
+    phoneNumber: phoneInputElement.value,
     orderItems: cart.map((x) => {
       return { bookId: x.id, quantity: x.count };
     }),
