@@ -19,7 +19,7 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
     using (var database = new BookshopDbContext())           //new object
     {
         //if searchString is not null
-        //if else ids is not null and HashCode items
+        //if else ids is not null and has items
         //else ALL
 
         if (!string.IsNullOrWhiteSpace(searchString))
@@ -103,6 +103,52 @@ app.MapGet("/books/{id}", (int id) =>
 
 
 
+    }
+});
+
+app.MapGet("/authors", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
+{
+    using (var database = new BookshopDbContext())         
+    {
+        if (!string.IsNullOrWhiteSpace(searchString))
+        {
+            return database.Authors                            
+                .Where(author =>
+                  author.FirstName.Contains(searchString) ||
+                  author.LastName.Contains(searchString) 
+                )
+                .Select(author => new AuthorSearchRecord            // from every found author make an ASR and it'll be sent to client
+                {
+                    Id = author.Id,
+                    FirstName = author.FirstName,
+                    LastName = author.LastName,
+                    Image = author.Image,
+                })
+                .ToList();
+        }
+        else if (ids != null && ids.Length > 0)
+        {
+            return database.Authors
+                .Where(author => ids.Contains(author.Id))
+                .Select(author => new AuthorSearchRecord
+                {
+                    Id = author.Id,
+                    FirstName = author.FirstName,
+                    LastName = author.LastName,
+                    Image = author.Image,
+                })
+                .ToList();
+        }
+
+        return database.Authors
+            .Select(author => new AuthorSearchRecord
+            {
+                Id = author.Id,
+                FirstName = author.FirstName,
+                LastName = author.LastName,
+                Image = author.Image,
+            })
+            .ToList();
     }
 });
 
