@@ -22,11 +22,11 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
         //if else ids is not null and has items
         //else ALL
 
-        if (!string.IsNullOrWhiteSpace(searchString))
+        if (!string.IsNullOrWhiteSpace(searchString)) // searchString is not null or empty (searchString exists)
         {
             return database.Books                              //which books do i need 
-                .Where(book =>
-                  book.Title.Contains(searchString) ||
+                .Where(book => // satisfy this condition
+                  book.Title.Contains(searchString) || 
                   book.Author.FirstName.Contains(searchString) ||
                   book.Author.LastName.Contains(searchString)
                 )
@@ -40,7 +40,7 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
                 })
                 .ToList();
         }  
-        else if (ids != null && ids.Length > 0)
+        else if (ids != null && ids.Length > 0) // ids collection not null and has items (there are IDs/ IDs were passed)
         {
             return database.Books
                 .Where(book => ids.Contains(book.Id))

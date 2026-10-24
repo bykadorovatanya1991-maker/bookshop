@@ -22,7 +22,8 @@
     />
   </head>
   <body>
-    <div class="search-cart-wrapper">
+    <div class="main-header">
+      <button class="menu-button" onclick="toggleMenu()">☰</button>
       <div class="search-wrapper">
         <input
           id="searchInput"
@@ -35,11 +36,17 @@
         </button>
       </div>
       <button onclick="onCartButtonClicked()" class="cart-button">
-        <img class="cart-image" src="images/icons/cart-icon.jpg" />
+        <img class="cart-image" src="/images/icons/cart-icon.jpg" />
         <span id="itemsInTheCart" class="items-in-the-cart"></span>
       </button>
     </div>
     <div id="booksWrapper" class="books-wrapper"></div>
+
+    <nav>
+      <button class="close-menu-button" onclick="toggleMenu()">✖</button>
+      <a href="/" >Books</a>
+      <a href="/author-search/author-search.html">Authors</a>
+    </nav>
 
     <script src="index.js"></script>
     <script src="cart-button.js"></script>

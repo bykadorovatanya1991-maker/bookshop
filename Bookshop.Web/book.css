@@ -71,7 +71,8 @@ body {
 .price {
   margin-top: 15px;
   font-size: 21px;
-  color: rgb(53, 53, 53);
+  color: rgb(199, 21, 21);
+  font-weight: bold;
   margin-left: 30px;
 }
 .buy-button {

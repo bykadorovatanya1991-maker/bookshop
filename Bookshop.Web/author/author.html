@@ -3,7 +3,7 @@
   <head>
     <title>Bookshop</title>
     <link rel="stylesheet" href="author.css" />
-    <link rel="stylesheet" href="cart-button.css" />
+    <link rel="stylesheet" href="/cart-button.css" />
 
     <link
       rel="stylesheet"
@@ -22,7 +22,13 @@
     />
   </head>
   <body>
+    <div class="back-cart-wrapper">
     <button onclick="backButtonClicked()" class="back-button">Back</button>
+     <button onclick="onCartButtonClicked()" class="cart-button">
+        <img class="cart-image" src="/images/icons/cart-icon.jpg" />
+        <span id="itemsInTheCart" class="items-in-the-cart"></span>
+      </button>
+      </div>
     <div id="authorOverview" class="author-overview">
       <img id="authorImage" class="author-image" />
       <div class="author-text-overview">
@@ -40,6 +46,6 @@
     <div id="authorBooksWrapper" class="author-books-wrapper"></div>
 
     <script src="author.js"></script>
-    <script src="cart-button.js"></script>
+    <script src="/cart-button.js"></script>
   </body>
 </html>
