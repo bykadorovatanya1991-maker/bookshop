@@ -106,6 +106,9 @@ function showContactDetails() {
     contactDetailsWrapperElement.classList.remove(
       "contact-details-wrapper-hidden",
     );
+    document
+      .getElementById("contactDetailsWrapper")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   }
 }
 

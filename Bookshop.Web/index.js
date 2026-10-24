@@ -2,29 +2,26 @@ getBooks();
 
 const inputElement = document.getElementById("searchInput");
 inputElement.addEventListener("keydown", (event) => {
-  if(event.key === "Enter"){
-    onSearchButtonClicked()
+  if (event.key === "Enter") {
+    onSearchButtonClicked();
   }
-})
+});
 
 function onSearchButtonClicked() {
-  let searchQuery = document.getElementById("searchInput").value;      //string
+  let searchQuery = document.getElementById("searchInput").value; //string
   getBooks(searchQuery);
 }
 
-function onCartButtonClicked() {
-  window.location.href = "/cart.html";
-}
-
+// hoisting (подъём)
 function getBooks(searchQuery) {
-
-  let url = "https://localhost:6767/books";          //endpoint adress
+  let url = "https://localhost:6767/books"; //endpoint address
   if (searchQuery !== null && searchQuery !== undefined && searchQuery !== "") {
-    url += "?searchString=" + searchQuery;           //query parameters
+    url += "?searchString=" + searchQuery; //query parameters
   }
-  fetch(url)                                         //http get request using url
+  fetch(url) //http get request using url
     .then((response) => response.json())
-    .then((books) => {                               //books here as array
+    .then((books) => {
+      //books here as array
       console.log(books);
 
       const booksWrapperElement = document.getElementById("booksWrapper");

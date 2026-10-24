@@ -49,4 +49,12 @@ function onBuyButtonClicked() {
   console.log(cartString);
 
   localStorage.setItem("cart", cartString);
+
+  const buyAlertElement = document.getElementById("buyAlert");
+  buyAlertElement.style.display = "block";
+  setTimeout(() => {
+    buyAlertElement.style.display = "none";
+  }, 4000);
+
+  updateTotalItemsInTheCart();
 }

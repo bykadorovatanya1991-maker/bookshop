@@ -4,13 +4,19 @@ body {
   font-style: normal !important;
   background-color: rgb(232, 233, 235);
 }
+.back-cart-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 2px solid rgb(232, 233, 235);
+}
 .back-button {
   font: inherit;
   color: rgb(43, 42, 42);
   background-color: rgb(246, 246, 247);
   border: solid 1px rgb(156, 153, 153);
-  padding: 5px 20px 5px 20px;
-  margin: 15px 0px 0px 20px;
+  padding: 5px 20px 0px 20px;
   border-radius: 2px;
   box-shadow: 3px 3px 8px rgb(189, 187, 187);
   font-size: 19px;
@@ -41,13 +47,11 @@ body {
   border-top: 1px solid rgb(236, 234, 234);
   border-bottom: 1px solid rgb(236, 234, 234);
   padding: 25px;
-
 }
 .title {
   font-size: 29px;
   margin-left: 30px;
   margin-top: 25px;
-
 }
 .author {
   border: none;
@@ -58,20 +62,17 @@ body {
   color: rgb(53, 53, 53);
   padding-left: 0px;
   margin-left: 30px;
-
 }
 .description {
   margin-top: 20px;
   font-size: 19px;
   margin-left: 30px;
-
 }
 .price {
   margin-top: 15px;
   font-size: 21px;
   color: rgb(53, 53, 53);
   margin-left: 30px;
-
 }
 .buy-button {
   font-style: inherit;
@@ -86,4 +87,18 @@ body {
   font-weight: bold;
   font-size: 19px;
   box-shadow: 3px 3px 8px rgb(189, 187, 187);
+}
+.buy-alert {
+  display: none;
+  width: 400px;
+  text-align: center;  
+  font: inherit; 
+  color: rgb(43, 42, 42);
+  background-color: rgb(247, 244, 244);
+  border: solid 1px rgb(218, 216, 216);
+  padding: 10px 20px 10px 20px;
+  margin: 40px auto 0px auto;
+  border-radius: 15px;
+  font-size: 19px;
+  box-shadow: 5px 5px 30px rgb(190, 190, 190);
 }

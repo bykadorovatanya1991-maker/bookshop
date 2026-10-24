@@ -3,6 +3,8 @@
   <head>
     <title>Bookshop</title>
     <link rel="stylesheet" href="author.css" />
+    <link rel="stylesheet" href="cart-button.css" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
@@ -20,24 +22,24 @@
     />
   </head>
   <body>
-    
     <button onclick="backButtonClicked()" class="back-button">Back</button>
     <div id="authorOverview" class="author-overview">
-      <img id="authorImage" class="author-image"/>
+      <img id="authorImage" class="author-image" />
       <div class="author-text-overview">
         <div id="authorName" class="author-name"></div>
         <div id="authorBornDead" class="author-born-dead">
           <span id="authorBorn" class="author-born"></span>
-          <span> - </span> 
+          <span> - </span>
           <span id="authorDead" class="author-dead"></span>
         </div>
         <div id="authorBiography" class="author-biography"></div>
       </div>
     </div>
 
-        <div id="authorBooksNumber" class="author-books-number"></div>
+    <div id="authorBooksNumber" class="author-books-number"></div>
     <div id="authorBooksWrapper" class="author-books-wrapper"></div>
 
     <script src="author.js"></script>
+    <script src="cart-button.js"></script>
   </body>
 </html>

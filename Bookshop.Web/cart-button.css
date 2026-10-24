@@ -1,0 +1,30 @@
+.cart-button{
+  font-style: inherit;
+  font: inherit;
+  color: rgb(43, 42, 42);
+  background-color: rgb(246, 246, 247);
+  border: solid 1px rgb(156, 153, 153);
+  padding: 5px 20px 5px 20px;
+  border-radius: 2px;
+  font-size: 19px;
+  box-shadow: 3px 3px 8px rgb(189, 187, 187);
+}
+.cart-image{
+  max-width: 30px;
+  height: auto;
+  position: relative;
+}
+.items-in-the-cart{
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background-color: rgb(223, 21, 21);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 17px;
+}
