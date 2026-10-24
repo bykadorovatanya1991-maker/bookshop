@@ -8,17 +8,13 @@
   border-radius: 2px;
   font-size: 19px;
   box-shadow: 3px 3px 8px rgb(189, 187, 187);
-}
-.cart-image{
-  max-width: 30px;
-  height: auto;
   position: relative;
 }
 .items-in-the-cart{
   display: inline-block;
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 0;
+  right: 0;
   background-color: rgb(223, 21, 21);
   color: white;
   width: 20px;

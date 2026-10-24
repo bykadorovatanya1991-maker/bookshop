@@ -20,32 +20,45 @@
       href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <div class="main-header">
-      <button class="menu-button" onclick="toggleMenu()">☰</button>
+      <button class="btn btn-outline-secondary" onclick="toggleMenu()">
+        ☰
+      </button>
       <div class="search-wrapper">
         <input
           id="searchInput"
-          class="search-input"
+          class="form-control search-input"
           type="search"
-          placeholder="Text in here"
+          placeholder="Search books"
         />
-        <button onclick="onSearchButtonClicked()" class="search-button">
+        <button
+          onclick="onSearchButtonClicked()"
+          class="search-button btn btn-primary"
+        >
           Search
         </button>
       </div>
-      <button onclick="onCartButtonClicked()" class="cart-button">
-        <img class="cart-image" src="/images/icons/cart-icon.jpg" />
+      <button onclick="onCartButtonClicked()" class="btn btn-light cart-button">
+        <i class="bi bi-basket"></i>
         <span id="itemsInTheCart" class="items-in-the-cart"></span>
       </button>
     </div>
     <div id="booksWrapper" class="books-wrapper"></div>
 
     <nav>
-      <button class="close-menu-button" onclick="toggleMenu()">✖</button>
-      <a href="/" >Books</a>
-      <a href="/author-search/author-search.html">Authors</a>
+      <button class="close-menu-button" onclick="toggleMenu()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <a href="/"> <i class="bi bi-book" aria-hidden="true"></i>Books</a>
+      <a href="/author-search/author-search.html">
+        <i class="bi bi-person" aria-hidden="true"></i>Authors</a
+      >
     </nav>
 
     <script src="index.js"></script>
