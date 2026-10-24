@@ -48,12 +48,10 @@ function addBook(book) {
   bookElement.appendChild(authorElement);
   bookElement.appendChild(priceElement);
 
-
   bookElement.classList.add("book");
   titleElement.classList.add("book-title");
   authorElement.classList.add("book-author");
   priceElement.classList.add("book-price");
-
 
   bookElement.addEventListener("click", (x) => {
     console.log("book", x);
@@ -66,11 +64,5 @@ function addBook(book) {
   authorElement.innerText = book.author;
   priceElement.innerText = `${book.price}€`;
 
-
   booksWrapperElement.appendChild(bookElement);
-}
-
-function toggleMenu() {
-  const navElement = document.getElementsByTagName("nav")[0];
-  navElement.classList.toggle("open");
 }

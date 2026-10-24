@@ -1,0 +1,31 @@
+<div class="main-header">
+  <button class="btn btn-outline-secondary" onclick="toggleMenu()">☰</button>
+  <div class="search-wrapper">
+    <input
+      id="searchInput"
+      class="form-control search-input"
+      type="search"
+      placeholder="Search books"
+    />
+    <button
+      onclick="onSearchButtonClicked()"
+      class="search-button btn btn-primary"
+    >
+      Search
+    </button>
+  </div>
+  <button onclick="onCartButtonClicked()" class="btn btn-light cart-button">
+    <i class="bi bi-basket"></i>
+    <span id="itemsInTheCart" class="items-in-the-cart"></span>
+  </button>
+</div>
+<nav>
+  <button class="close-menu-button" onclick="toggleMenu()">
+    <i class="bi bi-x-lg"></i>
+  </button>
+  <a href="/"> <i class="bi bi-book" aria-hidden="true"></i>Books</a>
+  <a href="/author-search/author-search.html">
+    <i class="bi bi-person" aria-hidden="true"></i>Authors</a
+  >
+</nav>
+

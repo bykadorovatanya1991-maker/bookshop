@@ -4,35 +4,6 @@ body {
   font-style: normal !important;
   background-color: rgb(232, 233, 235);
 }
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 60px;
-  padding: 20px;
-  background: #faf7f2;
-  border-bottom: 1px solid #e8e2d8;
-  position: sticky;
-  top: 0;
-}
-.search-wrapper {
-  display: flex;
-  gap: 20px;
-}
-.search-input {
-  font-style: inherit;
-  font: inherit;
-  color: rgb(43, 42, 42);
-  background-color: rgb(246, 246, 247);
-  border: solid 1px rgb(156, 153, 153);
-  padding: 5px 20px 5px 20px;
-  border-radius: 2px;
-  font-size: 19px;
-  box-shadow: 3px 3px 8px rgb(189, 187, 187);
-}
-.search-button {
-  font: inherit;
-  box-shadow: 3px 3px 8px rgb(189, 187, 187);
-}
 .books-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -52,10 +23,24 @@ body {
   &:hover {
     box-shadow: 8px 8px 50px rgb(189, 187, 187);
     cursor: pointer;
+
+    img {
+      transform: translateY(-6px);
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 14px 24px rgba(0, 0, 0, 0.18);
+    }
   }
   img {
     height: 400px;
     width: auto;
+
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.08),
+      0 4px 10px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
   }
 
   .book-title {
@@ -81,82 +66,4 @@ body {
   margin-bottom: 5px;
   color: rgb(199, 21, 21);
   font-size: 19px;
-}
-
-nav {
-  display: flex !important;
-  flex-direction: column;
-  border: 1px solid red;
-  position: fixed;
-  transform: translateX(-100%);
-  font-size: 19px;
-  padding: 20px;
-
-  background: #faf7f2;
-  border-right: 1px solid #e8e2d8;
-  padding-top: 50px;
-
-  &.open {
-    transform: translateX(0);
-    transition: cubic-bezier(0.19, 1, 0.22, 1);
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: white;
-  }
-}
-
-nav a {
-  display: block;
-  padding: 10px 20px;
-  color: #2b2b2b;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: #4f8a8f;
-  background: rgba(79, 138, 143, 0.08);
-}
-
-nav a i {
-  margin-right: 5px;
-}
-
-.close-menu-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 35px;
-  height: 35px;
-  padding-top: 3px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: #000;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-size: 1rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
-}
-
-.close-menu-button:hover {
-  border-color: #4f8a8f;
-}
-
-.close-menu-button:focus-visible {
-  outline: none;
-  border-color: #4f8a8f;
-  box-shadow: 0 0 0 3px rgba(79, 138, 143, 0.25);
-}
-
-.close-menu-button .bi::before {
-  vertical-align: 0;
-}
-button {
-  height: 38px;
 }

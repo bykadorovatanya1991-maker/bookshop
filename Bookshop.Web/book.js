@@ -25,11 +25,6 @@ fetch("https://localhost:6767/books/" + id)
     });
   });
 
-function onBackButtonClicked() {
-  //window.history.back();
-  window.location.href = "/index.html";
-}
-
 function onBuyButtonClicked() {
   let cartString = localStorage.getItem("cart"); // string
   console.log(cartString);

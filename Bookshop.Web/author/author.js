@@ -45,6 +45,3 @@ fetch("https://localhost:6767/authors/" + id)
 let authorTextBornDeadElement = document.getElementById("authorBornDead");
 authorTextOverviewElement = "'.authorBornElement' + '-' +  `authorDeadElement`";
 
-function backButtonClicked() {
-  window.history.back();
-}
