@@ -34,7 +34,7 @@ function addBook(book) {
   const quantityElement = document.createElement("input");
   quantityElement.type = "number";
   const deleteElement = document.createElement("button");
-  deleteElement.innerText = "Delete";
+  deleteElement.innerHTML = ' <i class="bi bi-trash3" aria-hidden="true"></i>';
 
   bookElement.appendChild(imageElement);
   bookElement.appendChild(bookDetailsWrapperElement);
@@ -45,6 +45,7 @@ function addBook(book) {
   bookDetailsWrapperElement.appendChild(priceAndQuantityElement);
   bookDetailsWrapperElement.appendChild(deleteElement);
 
+  cartWrapperElement.classList.add("cart-wrapper")
   bookElement.classList.add("book");
   bookDetailsWrapperElement.classList.add("book-details");
   titleElement.classList.add("book-title");
@@ -53,18 +54,24 @@ function addBook(book) {
   quantityElement.classList.add("book-quantity");
   priceAndQuantityElement.classList.add("price-and-quantity");
   imageElement.classList.add("book-image");
-  deleteElement.classList.add("book-delete");
+  deleteElement.classList.add("btn");
+  deleteElement.classList.add("btn-danger");
+  deleteElement.classList.add("btn-delete");
 
   const cartRecord = cart.find((x) => x.id == book.id);
 
   imageElement.src = book.image;
   titleElement.innerText = book.title;
   authorElement.innerText = book.author;
-  priceElement.innerText = `${book.price} Euros x`;
+  priceElement.innerText = `${book.price}€ x`;
 
   quantityElement.min = 1;
   quantityElement.value = cartRecord.count;
-  quantityElement.addEventListener("input", () => {
+  quantityElement.addEventListener("change", () => {
+    let count = quantityElement.value;
+    if (count < 1) {
+      quantityElement.value = 1;
+    }
     cartRecord.count = +quantityElement.value;
     localStorage.setItem("cart", JSON.stringify(cart));
     updateTotal();
@@ -89,7 +96,7 @@ function updateTotal() {
     return totalBookPrice;
   });
   totalPriceElement.innerText =
-    "Total: " + `${Math.sumPrecise(totalBookPrices)}`;
+    "Total: " + `${Math.sumPrecise(totalBookPrices)}` + "€";
 }
 
 var totalPriceElement = document.getElementById("totalPrice");

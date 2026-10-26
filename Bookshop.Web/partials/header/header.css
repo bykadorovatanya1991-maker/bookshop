@@ -1,7 +1,6 @@
 .main-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 60px;
   padding: 20px;
   background: #faf7f2;
   border-bottom: 1px solid #e8e2d8;
@@ -11,17 +10,6 @@
 .search-wrapper {
   display: flex;
   gap: 20px;
-}
-.search-input {
-  font-style: inherit;
-  font: inherit;
-  color: rgb(43, 42, 42);
-  background-color: rgb(246, 246, 247);
-  border: solid 1px rgb(156, 153, 153);
-  padding: 5px 20px 5px 20px;
-  border-radius: 2px;
-  font-size: 19px;
-  box-shadow: 3px 3px 8px rgb(189, 187, 187);
 }
 .search-button {
   font: inherit;
@@ -34,11 +22,11 @@ nav {
   position: fixed;
   transform: translateX(-100%);
   font-size: 19px;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
 
   background: #faf7f2;
   border-right: 1px solid #e8e2d8;
-  padding-top: 50px;
+  z-index: 1;
 
   &.open {
     transform: translateX(0);

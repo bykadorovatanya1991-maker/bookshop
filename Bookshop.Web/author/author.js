@@ -18,8 +18,18 @@ fetch("https://localhost:6767/authors/" + id)
 
     authorImageElement.src = "/" + data.image;
     authorNameElement.innerText = data.firstName + " " + data.lastName;
-    authorBornElement.innerText = data.dateOfBirth;
-    authorDeadElement.innerText = data.dateOfDeath;
+    const birthDate = new Date(data.dateOfBirth).toLocaleDateString("eng-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    authorBornElement.innerText = birthDate;
+    const deathDate = new Date(data.dateOfDeath).toLocaleDateString("eng-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    authorDeadElement.innerHTML = deathDate;
     authorBiographyElement.innerText = data.biography;
     authorBooksNumberElement.innerText = `Available books: ${data.books.length}`;
 
@@ -30,18 +40,22 @@ fetch("https://localhost:6767/authors/" + id)
       const imageTitleWrapperElement = document.createElement("div");
       const bookImageElement = document.createElement("img");
       const bookTitleElement = document.createElement("div");
-      imageTitleWrapperElement.append(bookImageElement, bookTitleElement);
+      const bookPriceElement = document.createElement("div");
 
-      imageTitleWrapperElement.classList.add("book")
-      bookImageElement.classList.add("book-image")
-      bookTitleElement.classList.add("book-title")
+      imageTitleWrapperElement.append(bookImageElement, bookTitleElement, bookPriceElement);
+
+      imageTitleWrapperElement.classList.add("book");
+      bookImageElement.classList.add("book-image");
+      bookTitleElement.classList.add("book-title");
+      bookPriceElement.classList.add("book-price");
+
       authorBooksWrapperElement.appendChild(imageTitleWrapperElement);
 
       bookImageElement.src = "/" + x.image;
       bookTitleElement.innerText = x.title;
+      bookPriceElement.innerHTML = `${x.price}€`
     });
   });
 
 let authorTextBornDeadElement = document.getElementById("authorBornDead");
 authorTextOverviewElement = "'.authorBornElement' + '-' +  `authorDeadElement`";
-

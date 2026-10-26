@@ -173,6 +173,7 @@ app.MapGet("/authors/{id}", (int id) =>
                         Id = book.Id,
                         Image = book.Image,
                         Title = book.Title,
+                        Price = book.Price
                     }).ToList(),
              }).First();
     }

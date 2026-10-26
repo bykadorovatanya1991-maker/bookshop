@@ -1,13 +1,13 @@
 getAuthors();
 function getAuthors(searchQuery) {
-
-  let url = "https://localhost:6767/authors";          //endpoint adress
+  let url = "https://localhost:6767/authors"; //endpoint adress
   if (searchQuery !== null && searchQuery !== undefined && searchQuery !== "") {
-    url += "?searchString=" + searchQuery;           //query parameters
+    url += "?searchString=" + searchQuery; //query parameters
   }
-  fetch(url)                                         //http get request using url
+  fetch(url) //http get request using url
     .then((response) => response.json())
-    .then((authors) => {                               //books here as array
+    .then((authors) => {
+      //books here as array
       console.log(authors);
 
       const authorsWrapperElement = document.getElementById("authorsWrapper");
@@ -17,7 +17,7 @@ function getAuthors(searchQuery) {
         addAuthor(author);
       });
     });
-};
+}
 
 function addAuthor(author) {
   const authorsWrapperElement = document.getElementById("authorsWrapper");
@@ -25,14 +25,19 @@ function addAuthor(author) {
   const authorElement = document.createElement("div");
 
   const imageElement = document.createElement("img");
+  const firstLastNameElement = document.createElement("div");
   const firstNameElement = document.createElement("div");
   const lastNameElement = document.createElement("div");
 
+  firstLastNameElement.appendChild(firstNameElement);
+  firstLastNameElement.appendChild(lastNameElement);
+
   authorElement.appendChild(imageElement);
-  authorElement.appendChild(firstNameElement);
-  authorElement.appendChild(lastNameElement);
+  authorElement.appendChild(firstLastNameElement);
+
 
   authorElement.classList.add("author");
+  firstLastNameElement.classList.add("author-first-last-name");
   firstNameElement.classList.add("author-first-name");
   lastNameElement.classList.add("author-last-name");
 

@@ -1,10 +1,4 @@
-body {
-  font-family: "Figtree", sans-serif !important;
-  font-optical-sizing: auto !important;
-  font-style: normal !important;
-  background-color: rgb(232, 233, 235);
-}
-.back-cart-wrapper{
+.back-cart-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +22,7 @@ body {
   justify-self: center;
   border-radius: 20px;
   max-width: 1300px;
-  margin: 30px;
+  margin: 60px 40px;
   padding: 30px 10px 30px 30px;
   height: auto;
   box-shadow: 5px 5px 30px rgb(190, 190, 190);
@@ -92,8 +86,8 @@ body {
 .buy-alert {
   display: none;
   width: 400px;
-  text-align: center;  
-  font: inherit; 
+  text-align: center;
+  font: inherit;
   color: rgb(43, 42, 42);
   background-color: rgb(247, 244, 244);
   border: solid 1px rgb(218, 216, 216);

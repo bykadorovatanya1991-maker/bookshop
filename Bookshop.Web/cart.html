@@ -1,55 +1,53 @@
 <!doctype html>
-<head>
-  <link rel="stylesheet" href="cart.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Noto+Sans+KR:wght@100..900&display=swap"
-    rel="stylesheet"
-  />
-</head>
-<body>
-  <div>
-    <a href="/index.html" class="main-page-link">Main page</a>
-    <div id="cartWrapper"></div>
-    <div id="toBuyWrapper" class="to-buy-wrapper">
-      <div id="totalPrice" class="total-price"></div>
-      <button
-        id="proceedButton"
-        class="proceed-button"
-        onclick="showContactDetails()"
-      >
-        Proceed
-      </button>
-    </div>
-    <form onsubmit="onSubmitClicked(event)">
-      <div
-        id="contactDetailsWrapper"
-        class="contact-details-wrapper contact-details-wrapper-hidden"
-      >
-        <div class="phone-details">
-          <div class="phone-text">Phone number</div>
-          <input
-            type="tel"
-            id="phoneInput"
-            class="phone-input"
-            required
-            placeholder="bsp. +49 123 4567890"
-            pattern="(\+49|0)[1-9][0-9]{6,14}"
-          />
-          <span class="error-phone-text">Enter a valid phone number</span>
-        </div>
-        <div class="email-details">
-          <div class="email-text">Email</div>
-          <input type="email" id="emailInput" class="email-input" required />
-          <span class="error-email-text">Enter a valid email</span>
-        </div>
-        <div class="separator"></div>
-        <button class="submit-button">Submit</button>
+<html>
+  <head>
+    <link rel="stylesheet" href="partials/shared.css" />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+  <body>
+    <div>
+      <div id="site-header"></div>
+
+      <div id="cartWrapper"></div>
+      <div id="toBuyWrapper" class="to-buy-wrapper">
+        <div id="totalPrice" class="total-price"></div>
+        <button
+          id="proceedButton"
+          class="btn btn-success"
+          onclick="showContactDetails()"
+        >
+          <i class="bi bi-bag-check" aria-hidden="true"></i> Proceed
+        </button>
       </div>
-    </form>
-  </div>
-  <script src="/cart.js"></script>
-</body>
+      <form onsubmit="onSubmitClicked(event)">
+        <div
+          id="contactDetailsWrapper"
+          class="contact-details-wrapper contact-details-wrapper-hidden"
+        >
+          <div class="phone-details">
+            <div class="phone-text">Phone number</div>
+            <input
+              type="tel"
+              id="phoneInput"
+              class="phone-input"
+              required
+              placeholder="bsp. +49 123 4567890"
+              pattern="(\+49|0)[1-9][0-9]{6,14}"
+            />
+            <span class="error-phone-text">Enter a valid phone number</span>
+          </div>
+          <div class="email-details">
+            <div class="email-text">Email</div>
+            <input type="email" id="emailInput" class="email-input" required />
+            <span class="error-email-text">Enter a valid email</span>
+          </div>
+          <div class="separator"></div>
+          <button class="submit-button">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="partials/header/header.js"></script>
+    <script src="/cart.js"></script>
+  </body>
+</html>
