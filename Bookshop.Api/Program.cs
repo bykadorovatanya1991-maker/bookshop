@@ -12,9 +12,14 @@ var app = builder.Build();
 
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 BookshopDbContext.Seed();
 
-app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
+var api = app.MapGroup("/api");
+
+api.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
 {
     using (var database = new BookshopDbContext())           //new object
     {
@@ -68,7 +73,7 @@ app.MapGet("/books", ([FromQuery] string? searchString, [FromQuery] int[]? ids) 
     }
 });
 
-app.MapGet("/books/{id}", (int id) =>
+api.MapGet("/books/{id}", (int id) =>
 {
     using (var database = new BookshopDbContext())
     {
@@ -106,7 +111,7 @@ app.MapGet("/books/{id}", (int id) =>
     }
 });
 
-app.MapGet("/authors", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
+api.MapGet("/authors", ([FromQuery] string? searchString, [FromQuery] int[]? ids) =>
 {
     using (var database = new BookshopDbContext())         
     {
@@ -152,7 +157,7 @@ app.MapGet("/authors", ([FromQuery] string? searchString, [FromQuery] int[]? ids
     }
 });
 
-app.MapGet("/authors/{id}", (int id) =>
+api.MapGet("/authors/{id}", (int id) =>
 {
     using (var database = new BookshopDbContext())
     {
@@ -179,7 +184,7 @@ app.MapGet("/authors/{id}", (int id) =>
     }
 });
 
-app.MapPost("/orders", (CreateOrderRequest request) => {
+api.MapPost("/orders", (CreateOrderRequest request) => {
     using (var database = new BookshopDbContext()) 
     {
         var order = new Order

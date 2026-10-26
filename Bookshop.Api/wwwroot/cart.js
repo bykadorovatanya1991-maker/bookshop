@@ -7,7 +7,7 @@ const query = new URLSearchParams(cart.map((x) => ["ids", x.id])).toString();
 
 let lastLoadedBooks;
 
-fetch(`https://localhost:6767/books?${query}`)
+fetch(`/api/books?${query}`)
   .then((response) => response.json())
   .then((books) => {
     console.log(books);
@@ -132,7 +132,7 @@ function onSubmitClicked(event) {
     }),
   };
 
-  fetch("https://localhost:6767/orders", {
+  fetch("/api/orders", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

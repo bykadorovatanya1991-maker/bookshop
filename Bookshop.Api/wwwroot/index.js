@@ -14,7 +14,7 @@ function onSearchButtonClicked() {
 
 // hoisting (подъём)
 function getBooks(searchQuery) {
-  let url = "https://localhost:6767/books"; //endpoint address
+  let url = "/api/books"; //endpoint address
   if (searchQuery !== null && searchQuery !== undefined && searchQuery !== "") {
     url += "?searchString=" + searchQuery; //query parameters
   }

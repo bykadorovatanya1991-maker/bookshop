@@ -1,6 +1,6 @@
 getAuthors();
 function getAuthors(searchQuery) {
-  let url = "https://localhost:6767/authors"; //endpoint adress
+  let url = "/api/authors"; //endpoint adress
   if (searchQuery !== null && searchQuery !== undefined && searchQuery !== "") {
     url += "?searchString=" + searchQuery; //query parameters
   }
