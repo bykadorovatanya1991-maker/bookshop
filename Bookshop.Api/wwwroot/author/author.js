@@ -37,23 +37,33 @@ fetch("/api/authors/" + id)
     data.books.forEach((x) => {
       const authorBooksWrapperElement =
         document.getElementById("authorBooksWrapper");
-      const imageTitleWrapperElement = document.createElement("div");
+      const bookWrapperElement = document.createElement("div");
       const bookImageElement = document.createElement("img");
       const bookTitleElement = document.createElement("div");
       const bookPriceElement = document.createElement("div");
 
-      imageTitleWrapperElement.append(bookImageElement, bookTitleElement, bookPriceElement);
+      bookWrapperElement.append(
+        bookImageElement,
+        bookTitleElement,
+        bookPriceElement,
+      );
 
-      imageTitleWrapperElement.classList.add("book");
+      bookWrapperElement.classList.add("book");
       bookImageElement.classList.add("book-image");
       bookTitleElement.classList.add("book-title");
       bookPriceElement.classList.add("book-price");
 
-      authorBooksWrapperElement.appendChild(imageTitleWrapperElement);
+      authorBooksWrapperElement.appendChild(bookWrapperElement);
+
+      bookWrapperElement.addEventListener("click", (event) => {
+        console.log("book", event);
+        event.stopPropagation();
+        window.location.href = "/book.html?id=" + x.id;
+      });
 
       bookImageElement.src = "/" + x.image;
       bookTitleElement.innerText = x.title;
-      bookPriceElement.innerHTML = `${x.price}€`
+      bookPriceElement.innerHTML = `${x.price}€`;
     });
   });
 

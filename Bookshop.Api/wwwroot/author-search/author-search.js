@@ -26,20 +26,12 @@ function addAuthor(author) {
 
   const imageElement = document.createElement("img");
   const firstLastNameElement = document.createElement("div");
-  const firstNameElement = document.createElement("div");
-  const lastNameElement = document.createElement("div");
-
-  firstLastNameElement.appendChild(firstNameElement);
-  firstLastNameElement.appendChild(lastNameElement);
 
   authorElement.appendChild(imageElement);
   authorElement.appendChild(firstLastNameElement);
 
-
   authorElement.classList.add("author");
   firstLastNameElement.classList.add("author-first-last-name");
-  firstNameElement.classList.add("author-first-name");
-  lastNameElement.classList.add("author-last-name");
 
   authorElement.addEventListener("click", (x) => {
     console.log("author", x);
@@ -48,8 +40,7 @@ function addAuthor(author) {
   });
 
   imageElement.src = "../" + author.image;
-  firstNameElement.innerText = author.firstName;
-  lastNameElement.innerText = author.lastName;
+  firstLastNameElement.innerText = author.firstName + " " + author.lastName;
 
   authorsWrapperElement.appendChild(authorElement);
 }

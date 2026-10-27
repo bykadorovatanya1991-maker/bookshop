@@ -10,6 +10,13 @@ async function loadHeader() {
   placeholder.innerHTML = await response.text();
 
   updateTotalItemsInTheCart();
+
+  const inputElement = document.getElementById("searchInput");
+  inputElement.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      onSearchButtonClicked();
+    }
+  });
 }
 
 function toggleMenu() {

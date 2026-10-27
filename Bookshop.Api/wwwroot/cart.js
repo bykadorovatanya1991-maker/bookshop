@@ -43,7 +43,7 @@ function addBook(book) {
   priceAndQuantityElement.appendChild(priceElement);
   priceAndQuantityElement.appendChild(quantityElement);
   bookDetailsWrapperElement.appendChild(priceAndQuantityElement);
-  bookDetailsWrapperElement.appendChild(deleteElement);
+  priceAndQuantityElement.appendChild(deleteElement);
 
   cartWrapperElement.classList.add("cart-wrapper")
   bookElement.classList.add("book");
