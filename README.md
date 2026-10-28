@@ -22,8 +22,9 @@ An online bookshop with a book catalog, author pages, a shopping cart and checko
 ## Architecture
 
 ```
-Bookshop.Domain   EF Core DbContext, entities (Book, Author, Order, OrderItem), migrations, seed data
-Bookshop.Api      Minimal API endpoints, DTOs, frontend in wwwroot/
+Bookshop.Api        presentation: endpoints, request validation
+Bookshop.Business   business logic: services + result DTOs
+Bookshop.Data       data access: entities, DbContext, migrations
 ```
 
 | Method | Endpoint | Purpose |
