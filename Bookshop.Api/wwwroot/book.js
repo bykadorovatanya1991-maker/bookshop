@@ -53,3 +53,5 @@ function onBuyButtonClicked() {
 
   updateTotalItemsInTheCart();
 }
+
+loadHeader();

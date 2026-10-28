@@ -1,5 +1,5 @@
-async function loadHeader() {
-  const placeholder = document.getElementById("site-header");
+async function loadHeader({ placeholder, onSearch } = {}) {
+  const container = document.getElementById("site-header");
   const response = await fetch("/partials/header/header.html");
 
   if (!response.ok) {
@@ -7,14 +7,30 @@ async function loadHeader() {
     return;
   }
 
-  placeholder.innerHTML = await response.text();
+  container.innerHTML = await response.text();
 
   updateTotalItemsInTheCart();
 
-  const inputElement = document.getElementById("searchInput");
-  inputElement.addEventListener("keydown", (event) => {
+  if (!onSearch) {
+    document.getElementById("searchWrapper").hidden = true;
+    return;
+  }
+
+  const input = document.getElementById("searchInput");
+  input.placeholder = placeholder;
+
+  document
+    .getElementById("searchButton")
+    .addEventListener("click", () => onSearch(input.value));
+  input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-      onSearchButtonClicked();
+      onSearch(input.value);
+    }
+  });
+  input.addEventListener("input", () => {
+    // clear scenario
+    if (!input.value) {
+      onSearch();
     }
   });
 }
@@ -34,5 +50,3 @@ function updateTotalItemsInTheCart() {
   const totalBookItems = cart.map((cartRecord) => cartRecord.count);
   itemsInTheCartElement.innerText = `${Math.sumPrecise(totalBookItems)}`;
 }
-
-loadHeader();

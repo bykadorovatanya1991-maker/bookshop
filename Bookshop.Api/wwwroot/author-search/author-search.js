@@ -31,6 +31,7 @@ function addAuthor(author) {
   authorElement.appendChild(firstLastNameElement);
 
   authorElement.classList.add("author");
+  imageElement.classList.add("author-image");
   firstLastNameElement.classList.add("author-first-last-name");
 
   authorElement.addEventListener("click", (x) => {
@@ -44,3 +45,5 @@ function addAuthor(author) {
 
   authorsWrapperElement.appendChild(authorElement);
 }
+
+loadHeader({ placeholder: "Search authors", onSearch: getAuthors });

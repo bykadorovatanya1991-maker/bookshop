@@ -82,7 +82,7 @@ api.MapGet("/books/{id}", (int id) =>
         //var bookId = database.Books.Where(x => x.Id == id).Select(x => x.Id).First(); // book ID
         //var bookIds = database.Books.Where(x => x.Id == id).Select(x => x.Id).ToList(); // book IDs
 
-        // History of disease 
+        // History 
         // 1. EF Model (Book only)
         //return database.Books.Where(x => x.Id == id).First(); // Author = null
         // 2. EF Model (Book + Author)
@@ -105,9 +105,6 @@ api.MapGet("/books/{id}", (int id) =>
                 Description = book.Description,
                 Price = book.Price
             }).First();
-
-
-
     }
 });
 

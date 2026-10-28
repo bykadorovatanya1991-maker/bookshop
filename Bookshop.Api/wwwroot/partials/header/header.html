@@ -1,16 +1,16 @@
 <div class="main-header">
-  <button class="btn btn-outline-secondary" onclick="toggleMenu()">☰</button>
-  <div class="search-wrapper">
+  <div class="menu-logo-wrapper">
+    <button class="btn btn-outline-secondary" onclick="toggleMenu()">☰</button>
+    <img src="/images/logo.png" class="logo" />
+  </div>
+  <div id="searchWrapper" class="search-wrapper">
     <input
       id="searchInput"
       class="form-control"
       type="search"
-      placeholder="Search books"
+      placeholder="Search"
     />
-    <button
-      onclick="onSearchButtonClicked()"
-      class="search-button btn btn-primary"
-    >
+    <button id="searchButton" class="search-button btn btn-primary">
       Search
     </button>
   </div>
@@ -20,6 +20,7 @@
   </button>
 </div>
 <nav>
+  <img src="/images/logo.png" />
   <button class="close-menu-button" onclick="toggleMenu()">
     <i class="bi bi-x-lg"></i>
   </button>
@@ -28,4 +29,3 @@
     <i class="bi bi-person" aria-hidden="true"></i>Authors</a
   >
 </nav>
-

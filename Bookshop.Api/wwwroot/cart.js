@@ -140,3 +140,5 @@ function onSubmitClicked(event) {
     body: JSON.stringify(request),
   });
 }
+
+loadHeader();

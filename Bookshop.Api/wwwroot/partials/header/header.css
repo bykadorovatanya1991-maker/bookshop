@@ -1,19 +1,38 @@
 .main-header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  padding: 10px 20px;
   background: #faf7f2;
   border-bottom: 1px solid #e8e2d8;
   position: sticky;
   top: 0;
-}
-.search-wrapper {
-  display: flex;
-  gap: 20px;
-}
-.search-button {
-  font: inherit;
-  box-shadow: 3px 3px 8px rgb(189, 187, 187);
+  height: 75px;
+
+  .menu-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    img {
+      height: 55px;
+    }
+  }
+
+  .search-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 400px;
+
+    .search-button {
+      font: inherit;
+      box-shadow: 3px 3px 8px rgb(189, 187, 187);
+    }
+  }
+
+  button {
+    height: 38px;
+  }
 }
 
 nav {
@@ -22,7 +41,7 @@ nav {
   position: fixed;
   transform: translateX(-100%);
   font-size: 19px;
-  padding: 50px 20px 20px 20px;
+  padding: 25px 20px 20px 20px;
 
   background: #faf7f2;
   border-right: 1px solid #e8e2d8;
@@ -37,22 +56,26 @@ nav {
     top: 0;
     left: 0;
   }
-}
 
-nav a {
-  display: block;
-  padding: 10px 20px;
-  color: #2b2b2b;
-  text-decoration: none;
-}
+  img {
+    margin-bottom: 15px;
+  }
 
-nav a:hover {
-  color: #4f8a8f;
-  background: rgba(79, 138, 143, 0.08);
-}
+  a {
+    display: block;
+    padding: 10px 20px;
+    color: #2b2b2b;
+    text-decoration: none;
 
-nav a i {
-  margin-right: 5px;
+    &:hover {
+      color: #4f8a8f;
+      background: rgba(79, 138, 143, 0.08);
+    }
+
+    i {
+      margin-right: 5px;
+    }
+  }
 }
 
 .close-menu-button {
@@ -73,21 +96,18 @@ nav a i {
   line-height: 1;
   cursor: pointer;
   transition: border-color 0.2s ease;
-}
 
-.close-menu-button:hover {
-  border-color: #4f8a8f;
-}
+  &:hover {
+    border-color: #4f8a8f;
+  }
 
-.close-menu-button:focus-visible {
-  outline: none;
-  border-color: #4f8a8f;
-  box-shadow: 0 0 0 3px rgba(79, 138, 143, 0.25);
-}
+  &:focus-visible {
+    outline: none;
+    border-color: #4f8a8f;
+    box-shadow: 0 0 0 3px rgba(79, 138, 143, 0.25);
+  }
 
-.close-menu-button .bi::before {
-  vertical-align: 0;
-}
-button {
-  height: 38px;
+  .bi::before {
+    vertical-align: 0;
+  }
 }

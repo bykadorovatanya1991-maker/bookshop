@@ -69,3 +69,5 @@ fetch("/api/authors/" + id)
 
 let authorTextBornDeadElement = document.getElementById("authorBornDead");
 authorTextOverviewElement = "'.authorBornElement' + '-' +  `authorDeadElement`";
+
+loadHeader();

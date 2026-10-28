@@ -1,11 +1,5 @@
 getBooks();
 
-
-function onSearchButtonClicked() {
-  let searchQuery = document.getElementById("searchInput").value; //string
-  getBooks(searchQuery);
-}
-
 // hoisting (подъём)
 function getBooks(searchQuery) {
   let url = "/api/books"; //endpoint address
@@ -60,3 +54,5 @@ function addBook(book) {
 
   booksWrapperElement.appendChild(bookElement);
 }
+
+loadHeader({ placeholder: "Search books", onSearch: getBooks });
