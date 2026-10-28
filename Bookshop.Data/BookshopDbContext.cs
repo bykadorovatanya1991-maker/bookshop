@@ -1,4 +1,4 @@
-using Bookshop.Domain.Models;
+using Bookshop.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class BookshopDbContext : DbContext

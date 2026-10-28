@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Bookshop.Api.DTOs;
+namespace Bookshop.Business.DTOs;
 
 public record CreateOrderRequest
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Bookshop.Domain.Models;
+namespace Bookshop.Data.Models;
 
 public class Order
 {

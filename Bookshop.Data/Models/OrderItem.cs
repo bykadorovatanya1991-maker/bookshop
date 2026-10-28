@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Bookshop.Domain.Models
+namespace Bookshop.Data.Models
 {
     public class OrderItem
     {
