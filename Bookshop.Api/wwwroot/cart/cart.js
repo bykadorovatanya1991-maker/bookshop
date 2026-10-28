@@ -7,18 +7,22 @@ const query = new URLSearchParams(cart.map((x) => ["ids", x.id])).toString();
 
 let lastLoadedBooks;
 
-fetch(`/api/books?${query}`)
-  .then((response) => response.json())
-  .then((books) => {
-    console.log(books);
-    lastLoadedBooks = books;
+if (cart.length === 0) {
+  showEmptyCart();
+} else {
+  fetch(`/api/books?${query}`)
+    .then((response) => response.json())
+    .then((books) => {
+      console.log(books);
+      lastLoadedBooks = books;
 
-    books.forEach((book) => {
-      addBook(book);
+      books.forEach((book) => {
+        addBook(book);
+      });
+
+      updateTotal();
     });
-
-    updateTotal();
-  });
+}
 
 function addBook(book) {
   const cartWrapperElement = document.getElementById("cartWrapper");
@@ -45,7 +49,7 @@ function addBook(book) {
   bookDetailsWrapperElement.appendChild(priceAndQuantityElement);
   priceAndQuantityElement.appendChild(deleteElement);
 
-  cartWrapperElement.classList.add("cart-wrapper")
+  cartWrapperElement.classList.add("cart-wrapper");
   bookElement.classList.add("book");
   bookDetailsWrapperElement.classList.add("book-details");
   titleElement.classList.add("book-title");
@@ -89,6 +93,11 @@ function addBook(book) {
 }
 
 function updateTotal() {
+  if (cart.length === 0) {
+    showEmptyCart();
+    return;
+  }
+
   const totalPriceElement = document.getElementById("totalPrice");
   const totalBookPrices = cart.map((cartRecord) => {
     const book = lastLoadedBooks.find((book) => cartRecord.id == book.id);
@@ -121,8 +130,12 @@ function showContactDetails() {
 
 function onSubmitClicked(event) {
   event.preventDefault();
+  const form = event.target;
+  const submitButton = form.querySelector("button");
   const phoneInputElement = document.getElementById("phoneInput");
   const emailInputElement = document.getElementById("emailInput");
+
+  submitButton.disabled = true;
 
   const request = {
     email: emailInputElement.value,
@@ -139,6 +152,28 @@ function onSubmitClicked(event) {
     },
     body: JSON.stringify(request),
   });
+
+  cart.length = 0;
+  localStorage.removeItem("cart");
+  updateTotalItemsInTheCart();
+
+  document.getElementById("cartWrapper").remove();
+  document.getElementById("toBuyWrapper").remove();
+  form.remove();
+
+  document.getElementById("orderSuccessEmail").innerText = request.email;
+
+  const successElement = document.getElementById("orderSuccess");
+  successElement.hidden = false;
+  successElement.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function showEmptyCart() {
+  document.getElementById("toBuyWrapper").style.display = "none";
+  document
+    .getElementById("contactDetailsWrapper")
+    .classList.add("contact-details-wrapper-hidden");
+  document.getElementById("emptyCart").hidden = false;
 }
 
 loadHeader();

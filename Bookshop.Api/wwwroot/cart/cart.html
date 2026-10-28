@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="partials/shared.css" />
-    <link rel="stylesheet" href="cart.css" />
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/partials/shared.css" />
+    <link rel="stylesheet" href="/cart/cart.css" />
+    <meta charset="UTF-8" />
   </head>
   <body>
     <div>
@@ -43,12 +43,28 @@
             <span class="error-email-text">Enter a valid email</span>
           </div>
           <div class="separator"></div>
-          <button class="submit-button">Submit</button>
+          <button class="btn btn-success">
+            <i class="bi bi-check-lg"></i> Submit
+          </button>
         </div>
       </form>
+
+      <div id="emptyCart" class="empty-cart" hidden>
+        <div class="message-title">Your cart is empty</div>
+        <div class="message-text">Find something you'd like to read.</div>
+        <a href="/" class="btn btn-primary">Continue shopping</a>
+      </div>
+
+      <div id="orderSuccess" class="order-success" hidden>
+        <div class="message-title">Thank you for your order!</div>
+        <div class="message-text">
+          We'll get in touch at <strong id="orderSuccessEmail"></strong>.
+        </div>
+        <a href="/" class="btn btn-primary">Continue shopping</a>
+      </div>
     </div>
 
-    <script src="partials/header/header.js"></script>
-    <script src="/cart.js"></script>
+    <script src="/partials/header/header.js"></script>
+    <script src="/cart/cart.js"></script>
   </body>
 </html>

@@ -54,16 +54,16 @@
     font-size: 19px;
     margin-left: 30px;
   }
+}
 
-  .author-books-number {
-    border-top: 1px solid rgb(236, 234, 234);
-    border-bottom: 1px solid rgb(236, 234, 234);
-    padding: 15px 0px 10px 0;
-    margin: 20px 0px;
-    font-size: 19px;
-    color: rgb(53, 53, 53);
-    text-align: center;
-  }
+.author-books-number {
+  border-top: 1px solid rgb(236, 234, 234);
+  border-bottom: 1px solid rgb(236, 234, 234);
+  padding: 15px 0px 10px 0;
+  margin: 20px 0px;
+  font-size: 19px;
+  color: rgb(53, 53, 53);
+  text-align: center;
 }
 
 .author-books-wrapper {

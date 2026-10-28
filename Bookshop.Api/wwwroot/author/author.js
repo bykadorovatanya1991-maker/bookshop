@@ -16,7 +16,7 @@ fetch("/api/authors/" + id)
     const authorBooksNumberElement =
       document.getElementById("authorBooksNumber");
 
-    authorImageElement.src = "/" + data.image;
+    authorImageElement.src = data.image;
     authorNameElement.innerText = data.firstName + " " + data.lastName;
     const birthDate = new Date(data.dateOfBirth).toLocaleDateString("eng-GB", {
       day: "numeric",
@@ -58,10 +58,10 @@ fetch("/api/authors/" + id)
       bookWrapperElement.addEventListener("click", (event) => {
         console.log("book", event);
         event.stopPropagation();
-        window.location.href = "/book.html?id=" + x.id;
+        window.location.href = "/book/book.html?id=" + x.id;
       });
 
-      bookImageElement.src = "/" + x.image;
+      bookImageElement.src = x.image;
       bookTitleElement.innerText = x.title;
       bookPriceElement.innerHTML = `${x.price}€`;
     });

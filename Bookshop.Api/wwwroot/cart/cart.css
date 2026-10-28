@@ -82,7 +82,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 700px;
-  padding: 25px 25px 25px 0px;
+  padding: 25px 0px;
   margin: 30px auto;
 }
 .total-price {
@@ -142,17 +142,7 @@
   margin-right: auto;
   margin-left: auto;
 }
-.submit-button {
-  font: inherit;
-  font-weight: 600;
-  color: rgb(53, 53, 53);
-  background-color: rgb(232, 233, 235);
-  border: solid 1px rgb(156, 153, 153);
-  padding: 3px 10px 3px 10px;
-  border-radius: 2px;
-  font-size: 18px;
-  text-decoration: none;
-}
+
 .contact-details-wrapper-hidden {
   display: none;
 }
@@ -174,4 +164,38 @@
 }
 .error-email-text {
   min-height: 20px;
+}
+
+.order-success {
+  text-align: center;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 30px rgb(190, 190, 190);
+}
+
+.order-success-icon {
+  font-size: 64px;
+}
+
+.empty-cart,
+.order-success {
+  text-align: center;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 30px rgb(190, 190, 190);
+}
+
+.message-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 12px 0 8px;
+}
+
+.message-text {
+  color: rgb(110, 110, 110);
+  margin-bottom: 20px;
 }

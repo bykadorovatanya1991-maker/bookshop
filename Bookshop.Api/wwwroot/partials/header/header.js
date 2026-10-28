@@ -41,7 +41,7 @@ function toggleMenu() {
 }
 
 function onCartButtonClicked() {
-  window.location.href = "/cart.html";
+  window.location.href = "/cart/cart.html";
 }
 
 function updateTotalItemsInTheCart() {

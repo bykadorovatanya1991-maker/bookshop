@@ -44,7 +44,7 @@ function addBook(book) {
   bookElement.addEventListener("click", (x) => {
     console.log("book", x);
     x.stopPropagation();
-    window.location.href = "/book.html?id=" + book.id;
+    window.location.href = "/book/book.html?id=" + book.id;
   });
 
   imageElement.src = book.image;
