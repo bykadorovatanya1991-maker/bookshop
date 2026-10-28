@@ -22,15 +22,20 @@ An online bookshop with a book catalog, author pages, a shopping cart and checko
 
 ## Architecture
 
-Three-layer backend with a static frontend and SQL Server.
-
 ```
-Bookshop.Api        presentation: endpoints, DI registration, request validation, frontend (wwwroot)
-Bookshop.Business   business logic: services, request and response DTOs
-Bookshop.Data       data access: entities, DbContext, migrations, seed data
+Frontend        HTML / CSS / JS pages, served as static files from Bookshop.Api/wwwroot
+     │  fetch → JSON (REST)
+     ▼
+Backend
+  Bookshop.Api        presentation: endpoints, DI registration, request validation
+  Bookshop.Business   business logic: services, request and response DTOs
+  Bookshop.Data       data access: entities, DbContext, migrations, seed data
+     │  EF Core
+     ▼
+Database        SQL Server
 ```
 
-Each project references only the one below it. The frontend calls the API with `fetch`, and the data layer talks to SQL Server through EF Core.  
+Each backend project references only the one below it.
 
 ## API endpoints
 
